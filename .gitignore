@@ -1,0 +1,4 @@
+build
+node_modules
+public/generated
+public/sitemap.xml

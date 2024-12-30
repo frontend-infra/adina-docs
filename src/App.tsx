@@ -1,4 +1,4 @@
-import { lazy, FC } from 'react'
+import { lazy, Suspense, FC } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useMedia } from 'frontend-essentials'
 import { createTheme } from '@mui/material/styles'
@@ -8,12 +8,14 @@ import { injectGlobal, css } from '@emotion/css'
 
 import pages from 'pages'
 import { DESKTOP_VIEWPORT } from 'styles/constants'
+import Layout from 'components/Layout'
 // @ts-ignore
 import gitHubIcon from 'images/github-mark.svg?url'
 // @ts-ignore
 import gitHubWhiteIcon from 'images/github-mark-white.svg?url'
 
 const Introduction = lazy(() => import(/* webpackChunkName: 'introduction' */ 'pages/Introduction'))
+const Installation = lazy(() => import(/* webpackChunkName: 'installation' */ 'pages/Installation'))
 const Pages = lazy(() => import(/* webpackChunkName: 'pages' */ 'pages/Pages'))
 const Rspack = lazy(() => import(/* webpackChunkName: 'rspack' */ 'pages/Rspack'))
 const PreloadAssets = lazy(() => import(/* webpackChunkName: 'preload-assets' */ 'pages/PreloadAssets'))
@@ -32,9 +34,11 @@ const Sitemap = lazy(() => import(/* webpackChunkName: 'sitemap' */ 'pages/Sitem
 const DynamicDataPreloading = lazy(
   () => import(/* webpackChunkName: 'dynamic-data-preloading' */ 'pages/DynamicDataPreloading')
 )
+const ReusingData = lazy(() => import(/* webpackChunkName: 'reusing-data' */ 'pages/ReusingData'))
 
 const pageComponents = [
   Introduction,
+  Installation,
   Pages,
   Rspack,
   PreloadAssets,
@@ -46,7 +50,8 @@ const pageComponents = [
   Googlebot,
   Prerendering,
   Sitemap,
-  DynamicDataPreloading
+  DynamicDataPreloading,
+  ReusingData
 ]
 const routes = Object.values(pages).map(({ path }, ind) => {
   const Element = pageComponents[ind]
@@ -79,6 +84,7 @@ const App: FC<{}> = () => {
     <AppProvider
       navigation={[
         { segment: getSegment('introduction'), title: 'Introduction', pattern: '/' },
+        { segment: getSegment('installation'), title: 'Installation', pattern: '/installation' },
         { kind: 'header', title: 'Files' },
         { segment: getSegment('pages'), title: 'pages.js', pattern: '/pages' },
         { segment: getSegment('rspack'), title: 'rspack.config.js' },
@@ -93,7 +99,8 @@ const App: FC<{}> = () => {
         { segment: getSegment('prerendering'), title: 'Prerendering' },
         { segment: getSegment('sitemap'), title: 'Sitemap' },
         { kind: 'header', title: 'Enhancements' },
-        { segment: getSegment('dynamic-data-preloading'), title: 'Dynamic Data Preloading' }
+        { segment: getSegment('dynamic-data-preloading'), title: 'Dynamic Data Preloading' },
+        { segment: getSegment('reusing-data'), title: 'Reusing Data' }
       ]}
       branding={{
         logo: <img src="https://mui.com/static/logo.png" alt="Adina logo" />,
@@ -107,7 +114,12 @@ const App: FC<{}> = () => {
         slots={{
           toolbarActions: () => (
             <div className="items-center">
-              <a className={styles.githubLink} href="https://github.com/frontend-infra/adina" target="_blank">
+              <a
+                className={styles.githubLink}
+                title="GitHub"
+                href="https://github.com/frontend-infra/adina"
+                target="_blank"
+              >
                 <img src={gitHubWhiteIcon} width="35px" height="34px" />
               </a>
 
@@ -116,11 +128,15 @@ const App: FC<{}> = () => {
           )
         }}
       >
-        <Routes>
-          {routes}
+        <Layout>
+          <Suspense>
+            <Routes>
+              {routes}
 
-          <Route path="/*" element={<Navigate replace to="/" />} />
-        </Routes>
+              <Route path="/*" element={<Navigate replace to="/" />} />
+            </Routes>
+          </Suspense>
+        </Layout>
       </DashboardLayout>
     </AppProvider>
   )

@@ -11,7 +11,6 @@ const Layout = ({ children }) => {
 
 const style = {
   wrapper: css`
-    height: 100%;
     position: relative;
     margin: 20px;
   `

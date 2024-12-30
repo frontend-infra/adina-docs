@@ -16,7 +16,7 @@ export default {
     title: 'rspack.config.js',
     data: [
       { url: 'https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/rspack.config.js' },
-      { url: '/content/rspack.md' }
+      { url: '/content/rspack.html' }
     ]
   },
   'preload-assets': {

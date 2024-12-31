@@ -9,7 +9,8 @@ export default {
   },
   pages: {
     path: '/pages',
-    title: 'pages.js'
+    title: 'pages.js',
+    data: [{ url: '/content/pages-definition.js' }, { url: '/content/pages-example.js' }, { url: '/content/pages.htm' }]
   },
   rspack: {
     path: '/rspack',

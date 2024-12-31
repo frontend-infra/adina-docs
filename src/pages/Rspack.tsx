@@ -19,7 +19,7 @@ const Rspack: FC<{}> = () => {
     <Page title={title} path="/">
       <SyntaxHighlighter className={style.code}>{code}</SyntaxHighlighter>
 
-      <div className={style.content} dangerouslySetInnerHTML={{ __html: content }} />
+      <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
     </Page>
   )
 }

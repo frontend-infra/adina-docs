@@ -3,7 +3,7 @@ import { css, cx } from '@emotion/css'
 
 const Path: FC<HTMLAttributes<HTMLSpanElement>> = ({ className, children, ...props }) => (
   <span className={cx(style.wrapper, className)} {...props}>
-    file path: <span className={style.path}>{children}</span>
+    Path: <span className={style.path}>{children}</span>
   </span>
 )
 

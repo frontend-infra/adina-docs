@@ -1,13 +1,13 @@
-import { lazy, Suspense, FC } from 'react'
+import { lazy, FC } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useMedia } from 'frontend-essentials'
-import { createTheme } from '@mui/material/styles'
 import { AppProvider } from '@toolpad/core/react-router-dom'
-import { DashboardLayout, ThemeSwitcher } from '@toolpad/core/DashboardLayout'
+import { DashboardLayout } from '@toolpad/core/DashboardLayout'
 import { injectGlobal, css } from '@emotion/css'
 
 import pages from 'pages'
 import { DESKTOP_VIEWPORT } from 'styles/constants'
+import ThemeSwitcher from 'components/common/ThemeSwitcher'
 import Layout from 'components/Layout'
 // @ts-ignore
 import gitHubIcon from 'images/github-mark.svg?url'
@@ -61,22 +61,6 @@ const routes = Object.values(pages).map(({ path }, ind) => {
 
 const getSegment = (chunk: string) => pages[chunk].path.replace('/', '')
 
-const demoTheme = createTheme({
-  cssVariables: {
-    colorSchemeSelector: 'data-toolpad-color-scheme'
-  },
-  colorSchemes: { light: true, dark: true },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 600,
-      lg: 1200,
-      xl: 1536
-    }
-  }
-})
-
 const App: FC<{}> = () => {
   const { desktop } = useMedia({ desktop: DESKTOP_VIEWPORT })
 
@@ -107,7 +91,6 @@ const App: FC<{}> = () => {
         title: 'Adina',
         homeUrl: '/'
       }}
-      theme={demoTheme}
     >
       <DashboardLayout
         disableCollapsibleSidebar={desktop}
@@ -120,7 +103,7 @@ const App: FC<{}> = () => {
                 href="https://github.com/frontend-infra/adina"
                 target="_blank"
               >
-                <img src={gitHubWhiteIcon} width="35px" height="34px" />
+                <img src={gitHubWhiteIcon} width="30px" height="29px" />
               </a>
 
               <ThemeSwitcher />
@@ -129,13 +112,11 @@ const App: FC<{}> = () => {
         }}
       >
         <Layout>
-          <Suspense>
-            <Routes>
-              {routes}
+          <Routes>
+            {routes}
 
-              <Route path="/*" element={<Navigate replace to="/" />} />
-            </Routes>
-          </Suspense>
+            <Route path="/*" element={<Navigate replace to="/" />} />
+          </Routes>
         </Layout>
       </DashboardLayout>
     </AppProvider>

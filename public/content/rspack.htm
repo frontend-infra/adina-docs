@@ -10,13 +10,24 @@
 <h3>Detailed Breakdown</h3>
 
 <p>
-  The <strong>output</strong> object is set to save all scripts files under a <strong>scripts</strong> folder.
-
+  The <strong>output</strong> object is set to save all script files under a <strong>scripts</strong> folder.
   <br />
-
+  <br />
   The <strong>optimization</strong> object is set to split venders and async vendors to separate chunks while preventing
-  duplications. Each vendor chunk is given its package name, while async vendor chunksare given their package name in
-  addition to all the async chunks that use them.
+  duplications.
+  <br />
+  During the optimization process, each vendor chunk is given its package name in addition to all the chunks that use
+  it.
+  <br />
+  <br />
+  For example:
+  <br />
+  <code>react.main.e2c127.js</code>
+  <br />
+  <code>react-router.main.b47e33.js</code>
+  <br />
+  <code>tanstack.products.comparison.about.14f327.js</code>
+  <br />
   <br />
   We set a lower 10kb limit for chunks to be split.
 </p>

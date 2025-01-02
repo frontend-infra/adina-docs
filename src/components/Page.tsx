@@ -13,7 +13,7 @@ type PageProps = HTMLAttributes<HTMLDivElement> & {
 const Page: FC<PageProps> = ({ title, path, children }) => {
   return (
     <div>
-      <Meta title={title} description={''} image={`${window.location.origin}/icons/og-icon.png`} />
+      <Meta title={`${title} | Adina`} description={''} image={`${window.location.origin}/icons/og-icon.png`} />
 
       <Title>{title}</Title>
 

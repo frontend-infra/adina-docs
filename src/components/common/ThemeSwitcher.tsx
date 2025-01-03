@@ -1,37 +1,30 @@
-import { useState, FC, HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import { css } from '@emotion/css'
 
+import useStore, { Theme } from 'hooks/useStore'
 import SunIcon from 'images/sun.svg'
 import MoonIcon from 'images/moon.svg'
 
-type Theme = 'light' | 'dark'
-
-document.documentElement.setAttribute('data-theme', localStorage.theme || 'light')
-
-const ThemeSwitcher: FC<HTMLAttributes<HTMLButtonElement>> = () => {
-  const [theme, setTheme] = useState<Theme>(localStorage.theme || 'light')
-
-  const changeTheme = (newTheme: Theme) => {
-    document.documentElement.setAttribute('data-theme', newTheme)
-    localStorage.setItem('theme', newTheme)
-    setTheme(newTheme)
-  }
+const ThemeSwitcher: FC<HTMLAttributes<SVGAElement>> = () => {
+  const { theme, setTheme } = useStore()
 
   return (
-    <button className={style.wrapper}>
-      {theme === 'light' ? (
-        <SunIcon width="30px" onClick={() => changeTheme('dark')} />
+    <>
+      {theme === Theme.LIGHT ? (
+        <SunIcon className={style.wrapper} onClick={() => setTheme(Theme.DARK)} />
       ) : (
-        <MoonIcon width="30px" onClick={() => changeTheme('light')} />
+        <MoonIcon className={style.wrapper} onClick={() => setTheme(Theme.LIGHT)} />
       )}
-    </button>
+    </>
   )
 }
 
 const style = {
   wrapper: css`
+    width: 30px;
     margin-left: auto;
     color: var(--text-color);
+    cursor: pointer;
 
     @media (hover: hover) {
       :hover {

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useFetch } from 'frontend-essentials'
-import { css } from '@emotion/css'
+import { css, cx } from '@emotion/css'
 
 import pages from 'pages'
 import Page from 'components/Page'
@@ -18,12 +18,12 @@ const Pages: FC<{}> = () => {
 
   return (
     <Page title={title} path="/src">
-      <br />
-      Type Definition:
-      <SyntaxHighlighter className={style.code}>{definitionCode}</SyntaxHighlighter>
-      <br />
-      Example:
-      <SyntaxHighlighter className={style.code}>{exampleCode}</SyntaxHighlighter>
+      <section>Type Definition:</section>
+      <SyntaxHighlighter className={cx(style.code, style.definitionCode)}>{definitionCode}</SyntaxHighlighter>
+
+      <section>Example:</section>
+      <SyntaxHighlighter className={cx(style.code, style.exampleCode)}>{exampleCode}</SyntaxHighlighter>
+
       <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
     </Page>
   )
@@ -31,7 +31,14 @@ const Pages: FC<{}> = () => {
 
 const style = {
   code: css`
+    margin-top: 10px;
     width: 1000px;
+  `,
+  definitionCode: css`
+    min-height: 160px;
+  `,
+  exampleCode: css`
+    min-height: 352px;
   `,
   content: css`
     margin-top: 40px;

@@ -12,7 +12,8 @@ const style = {
     display: inline-block;
     padding: 5px 10px;
     border-radius: 4px;
-    background-color: lightgray;
+    color: #dddddd;
+    background-color: var(--secondary-color);
   `,
   path: css`
     font-weight: 600;

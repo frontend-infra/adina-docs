@@ -5,15 +5,44 @@ import { DESKTOP_VIEWPORT } from './constants'
 injectGlobal`
 	:root {
 		--primary-color: dodgerblue;
-    --secondary-color: #654597;
+    --secondary-color: #444444;
 		--text-color: #24292e;
 		--bg-color: #fff;
+    --mui-palette-text-primary: #24292e;
+    --mui-palette-background-paper: #fff;
+    --mui-palette-divider: #e1e4e8;
 	}
 
 	[data-theme='dark'] {
 		--text-color: #fff;
 		--bg-color: #0f0e0e;
+    --mui-palette-text-primary: #fff;
+    --mui-palette-background-paper: #0f0e0e;
+    --mui-palette-divider: #3a3a3a;
 	}
+
+  * {
+    /* scrollbar-color: var(--bg-color) var(--mui-palette-divider); */
+    
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--mui-palette-divider);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+  }
 
   ::view-transition-old(root) {
     animation: slide-out 0.1s;
@@ -55,7 +84,6 @@ injectGlobal`
 		font-family: 'Montserrat', sans-serif;
 		color: var(--text-color);
 		background-color: var(--bg-color);
-		transition: color 0.2s, background-color 0.2s;
 	}
 
 	svg {

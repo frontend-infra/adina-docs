@@ -7,12 +7,10 @@ import { injectGlobal, css } from '@emotion/css'
 
 import pages from 'pages'
 import { DESKTOP_VIEWPORT } from 'styles/constants'
+import useScrollToTop from 'hooks/useScrollToTop'
 import ThemeSwitcher from 'components/common/ThemeSwitcher'
 import Layout from 'components/Layout'
-// @ts-ignore
-import gitHubIcon from 'images/github-mark.svg?url'
-// @ts-ignore
-import gitHubWhiteIcon from 'images/github-mark-white.svg?url'
+import GitHubIcon from 'images/github.svg'
 
 const Introduction = lazy(() => import(/* webpackChunkName: 'introduction' */ 'pages/Introduction'))
 const Installation = lazy(() => import(/* webpackChunkName: 'installation' */ 'pages/Installation'))
@@ -53,6 +51,7 @@ const pageComponents = [
   DynamicDataPreloading,
   ReusingData
 ]
+
 const routes = Object.values(pages).map(({ path }, ind) => {
   const Element = pageComponents[ind]
 
@@ -64,35 +63,16 @@ const getSegment = (chunk: string) => pages[chunk].path.replace('/', '')
 const App: FC<{}> = () => {
   const { desktop } = useMedia({ desktop: DESKTOP_VIEWPORT })
 
+  useScrollToTop()
+
   return (
-    <AppProvider
-      navigation={[
-        { segment: getSegment('introduction'), title: 'Introduction', pattern: '/' },
-        { segment: getSegment('installation'), title: 'Installation', pattern: '/installation' },
-        { kind: 'header', title: 'Files' },
-        { segment: getSegment('pages'), title: 'pages.js', pattern: '/pages' },
-        { segment: getSegment('rspack'), title: 'rspack.config.js' },
-        { segment: getSegment('preload-assets'), title: 'preload-assets.js' },
-        { segment: getSegment('inject-assets-plugin'), title: 'inject-assets-plugin.js' },
-        { segment: getSegment('worker'), title: '_worker.js' },
-        { segment: getSegment('extract-inline-scripts'), title: 'extract-inline-scripts.ts' },
-        { segment: getSegment('service-worker-registration'), title: 'service-worker-registration.ts' },
-        { segment: getSegment('service-worker'), title: 'service-worker.js' },
-        { kind: 'header', title: 'SEO' },
-        { segment: getSegment('googlebot'), title: 'Googlebot' },
-        { segment: getSegment('prerendering'), title: 'Prerendering' },
-        { segment: getSegment('sitemap'), title: 'Sitemap' },
-        { kind: 'header', title: 'Enhancements' },
-        { segment: getSegment('dynamic-data-preloading'), title: 'Dynamic Data Preloading' },
-        { segment: getSegment('reusing-data'), title: 'Reusing Data' }
-      ]}
-      branding={{
-        logo: <img src="https://mui.com/static/logo.png" alt="Adina logo" />,
-        title: 'Adina',
-        homeUrl: '/'
-      }}
-    >
+    <AppProvider>
       <DashboardLayout
+        branding={{
+          logo: <img src="https://mui.com/static/logo.png" alt="Adina logo" />,
+          title: 'Adina',
+          homeUrl: '/'
+        }}
         disableCollapsibleSidebar={desktop}
         slots={{
           toolbarActions: () => (
@@ -103,13 +83,33 @@ const App: FC<{}> = () => {
                 href="https://github.com/frontend-infra/adina"
                 target="_blank"
               >
-                <img src={gitHubWhiteIcon} width="30px" height="29px" />
+                <GitHubIcon />
               </a>
 
               <ThemeSwitcher />
             </div>
           )
         }}
+        navigation={[
+          { segment: getSegment('introduction'), title: 'Introduction' },
+          { segment: getSegment('installation'), title: 'Installation' },
+          { kind: 'header', title: 'Files' },
+          { segment: getSegment('pages'), title: 'pages.js' },
+          { segment: getSegment('rspack'), title: 'rspack.config.js' },
+          { segment: getSegment('preload-assets'), title: 'preload-assets.js' },
+          { segment: getSegment('inject-assets-plugin'), title: 'inject-assets-plugin.js' },
+          { segment: getSegment('worker'), title: '_worker.js' },
+          { segment: getSegment('extract-inline-scripts'), title: 'extract-inline-scripts.ts' },
+          { segment: getSegment('service-worker-registration'), title: 'service-worker-registration.ts' },
+          { segment: getSegment('service-worker'), title: 'service-worker.js' },
+          { kind: 'header', title: 'SEO' },
+          { segment: getSegment('googlebot'), title: 'Googlebot' },
+          { segment: getSegment('prerendering'), title: 'Prerendering' },
+          { segment: getSegment('sitemap'), title: 'Sitemap' },
+          { kind: 'header', title: 'Enhancements' },
+          { segment: getSegment('dynamic-data-preloading'), title: 'Dynamic Data Preloading' },
+          { segment: getSegment('reusing-data'), title: 'Reusing Data' }
+        ]}
       >
         <Layout>
           <Routes>
@@ -124,8 +124,18 @@ const App: FC<{}> = () => {
 }
 
 injectGlobal`
+  nav.MuiBox-root {
+    /* scrollbar-width: thin; */
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
   .MuiListSubheader-root {
     font-size: 20px;
+    color: inherit;
   }
 `
 
@@ -133,7 +143,10 @@ const styles = {
   githubLink: css`
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    color: var(--text-color);
 
     :hover {
       opacity: 0.5;

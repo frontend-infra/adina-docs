@@ -17,14 +17,14 @@ const Page: FC<PageProps> = ({ title, path, children }) => {
 
       <Title>{title}</Title>
 
-      <Path className={styles.path}>{path}</Path>
+      <Path className={style.path}>{path}</Path>
 
       {children}
     </div>
   )
 }
 
-const styles = {
+const style = {
   path: css`
     margin: 20px 0 25px;
   `

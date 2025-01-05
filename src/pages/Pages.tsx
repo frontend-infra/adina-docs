@@ -31,7 +31,7 @@ const Pages: FC<{}> = () => {
 
 const style = {
   code: css`
-    margin-top: 10px;
+    margin: 10px 0 25px 0;
     width: 1000px;
   `,
   definitionCode: css`

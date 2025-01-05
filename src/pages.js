@@ -10,7 +10,12 @@ export default {
   pages: {
     path: '/pages',
     title: 'pages.js',
-    data: [{ url: '/content/pages-definition.js' }, { url: '/content/pages-example.js' }, { url: '/content/pages.htm' }]
+    data: [
+      { url: '/content/pages-definition.js' },
+      { url: '/content/pages-example.js' },
+      { url: '/content/pages.htm' }
+    ],
+    preloadOnHover: true
   },
   rspack: {
     path: '/rspack',
@@ -18,7 +23,8 @@ export default {
     data: [
       { url: 'https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/rspack.config.js' },
       { url: '/content/rspack.htm' }
-    ]
+    ],
+    preloadOnHover: true
   },
   'preload-assets': {
     path: '/preload-assets',

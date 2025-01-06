@@ -7,7 +7,7 @@ import Path from 'components/common/Path'
 
 type PageProps = HTMLAttributes<HTMLDivElement> & {
   title: string
-  path: string
+  path?: string
 }
 
 const Page: FC<PageProps> = ({ title, path, children }) => {
@@ -17,7 +17,7 @@ const Page: FC<PageProps> = ({ title, path, children }) => {
 
       <Title>{title}</Title>
 
-      <Path className={style.path}>{path}</Path>
+      {path && <Path className={style.path}>{path}</Path>}
 
       {children}
     </div>

@@ -28,27 +28,63 @@ export default {
   },
   'preload-assets': {
     path: '/preload-assets',
-    title: 'preload-assets.js'
+    title: 'preload-assets.js',
+    data: [
+      { url: 'https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/scripts/preload-assets.js' },
+      { url: '/content/preload-assets.htm' }
+    ],
+    preloadOnHover: true
   },
   'inject-assets-plugin': {
     path: '/inject-assets-plugin',
-    title: 'inject-assets-plugin.js'
+    title: 'inject-assets-plugin.js',
+    data: [
+      { url: 'https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/scripts/inject-assets-plugin.js' },
+      { url: '/content/inject-assets-plugin.htm' }
+    ],
+    preloadOnHover: true
   },
   worker: {
     path: '/worker',
-    title: '_worker.js'
+    title: '_worker.js',
+    data: [
+      { url: 'https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/public/_worker.js' },
+      { url: '/content/_worker.htm' }
+    ],
+    preloadOnHover: true
   },
   'extract-inline-scripts': {
     path: '/extract-inline-scripts',
-    title: 'extract-inline-scripts.ts'
+    title: 'extract-inline-scripts.ts',
+    data: [
+      {
+        url: 'https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/src/utils/extract-inline-scripts.ts'
+      },
+      { url: '/content/extract-inline-scripts.htm' }
+    ],
+    preloadOnHover: true
   },
   'service-worker-registration': {
     path: '/service-worker-registration',
-    title: 'service-worker-registration.ts'
+    title: 'service-worker-registration.ts',
+    data: [
+      {
+        url: 'https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/src/utils/service-worker-registration.ts'
+      },
+      { url: '/content/service-worker-registration.htm' }
+    ],
+    preloadOnHover: true
   },
   'service-worker': {
     path: '/service-worker',
-    title: 'service-worker.js'
+    title: 'service-worker.js',
+    data: [
+      {
+        url: 'https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/public/service-worker.js'
+      },
+      { url: '/content/service-worker.htm' }
+    ],
+    preloadOnHover: true
   },
   googlebot: {
     path: '/googlebot',

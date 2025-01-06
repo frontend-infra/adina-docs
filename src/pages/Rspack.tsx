@@ -4,7 +4,7 @@ import { css } from '@emotion/css'
 
 import pages from 'pages'
 import Page from 'components/Page'
-import SyntaxHighlighter from 'components/common/SyntaxHighlighter'
+import CodeSnippet from 'components/common/CodeSnippet'
 
 const {
   title,
@@ -17,7 +17,7 @@ const Rspack: FC<{}> = () => {
 
   return (
     <Page title={title} path="/">
-      <SyntaxHighlighter className={style.code}>{code}</SyntaxHighlighter>
+      <CodeSnippet className={style.code}>{code}</CodeSnippet>
 
       <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
     </Page>
@@ -26,8 +26,7 @@ const Rspack: FC<{}> = () => {
 
 const style = {
   code: css`
-    width: 1000px;
-    max-width: 100%;
+    min-width: 980px;
     min-height: 1432px;
   `,
   content: css`

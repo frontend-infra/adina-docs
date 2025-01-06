@@ -1,1 +1,12 @@
-export default () => <div></div>
+import type { FC } from 'react'
+
+import pages from 'pages'
+import Page from 'components/Page'
+
+const { title } = pages['reusing-data']
+
+const ReusingData: FC<{}> = () => {
+  return <Page title={title}></Page>
+}
+
+export default ReusingData

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import type { Page } from 'index.d'
 
-const preloadPageData = (href: string, matchingPage: Page) => {
+const preloadPageData = (href: string, matchingPage: any) => {
+  // @ts-ignore
   if (href !== window.location.pathname) preloadData(matchingPage)
 }
 
@@ -11,6 +11,7 @@ const usePreloadData = () => {
 
     links.forEach(link => {
       const href = link.getAttribute('href') as string
+      // @ts-ignore
       const matchingPage = getMatchingPage(href)
 
       if (!matchingPage?.data) return

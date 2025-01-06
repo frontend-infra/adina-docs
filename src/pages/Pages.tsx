@@ -4,7 +4,7 @@ import { css, cx } from '@emotion/css'
 
 import pages from 'pages'
 import Page from 'components/Page'
-import SyntaxHighlighter from 'components/common/SyntaxHighlighter'
+import CodeSnippet from 'components/common/CodeSnippet'
 
 const {
   title,
@@ -19,10 +19,10 @@ const Pages: FC<{}> = () => {
   return (
     <Page title={title} path="/src">
       <section>Type Definition:</section>
-      <SyntaxHighlighter className={cx(style.code, style.definitionCode)}>{definitionCode}</SyntaxHighlighter>
+      <CodeSnippet className={cx(style.code, style.definitionCode)}>{definitionCode}</CodeSnippet>
 
       <section>Example:</section>
-      <SyntaxHighlighter className={cx(style.code, style.exampleCode)}>{exampleCode}</SyntaxHighlighter>
+      <CodeSnippet className={cx(style.code, style.exampleCode)}>{exampleCode}</CodeSnippet>
 
       <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
     </Page>
@@ -31,14 +31,14 @@ const Pages: FC<{}> = () => {
 
 const style = {
   code: css`
+    min-width: 964px;
     margin: 10px 0 25px 0;
-    width: 1000px;
   `,
   definitionCode: css`
-    min-height: 160px;
+    min-height: 208px;
   `,
   exampleCode: css`
-    min-height: 352px;
+    min-height: 424px;
   `,
   content: css`
     margin-top: 40px;

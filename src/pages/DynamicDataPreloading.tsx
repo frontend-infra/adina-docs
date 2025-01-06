@@ -1,22 +1,12 @@
 import type { FC } from 'react'
-import { css, cx } from '@emotion/css'
-import { Meta } from 'frontend-essentials'
 
 import pages from 'pages'
-import Title from 'components/common/Title'
+import Page from 'components/Page'
 
 const { title } = pages['dynamic-data-preloading']
 
 const DynamicDataPreloading: FC<{}> = () => {
-  return (
-    <div>
-      <Meta title={title} description={''} image={`${window.location.origin}/icons/og-icon.png`} />
-
-      <Title>{title}</Title>
-    </div>
-  )
+  return <Page title={title}></Page>
 }
-
-const style = {}
 
 export default DynamicDataPreloading

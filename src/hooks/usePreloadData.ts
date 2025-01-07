@@ -7,19 +7,22 @@ const preloadPageData = (href: string, matchingPage: any) => {
 
 const usePreloadData = () => {
   useEffect(() => {
-    const links = document.querySelectorAll('nav a')
+    // Mobile nav does not render immediately
+    setTimeout(() => {
+      const links = document.querySelectorAll('nav a')
 
-    links.forEach(link => {
-      const href = link.getAttribute('href') as string
-      // @ts-ignore
-      const matchingPage = getMatchingPage(href)
+      links.forEach(link => {
+        const href = link.getAttribute('href') as string
+        // @ts-ignore
+        const matchingPage = getMatchingPage(href)
 
-      if (!matchingPage?.data) return
+        if (!matchingPage?.data) return
 
-      link.addEventListener('mousedown', () => preloadPageData(href, matchingPage))
-      link.addEventListener('touchstart', () => preloadPageData(href, matchingPage))
+        link.addEventListener('mousedown', () => preloadPageData(href, matchingPage))
+        link.addEventListener('touchstart', () => preloadPageData(href, matchingPage))
 
-      if (matchingPage.preloadOnHover) link.addEventListener('mouseenter', () => preloadPageData(href, matchingPage))
+        if (matchingPage.preloadOnHover) link.addEventListener('mouseenter', () => preloadPageData(href, matchingPage))
+      })
     })
   }, [])
 }

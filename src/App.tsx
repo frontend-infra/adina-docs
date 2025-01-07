@@ -86,6 +86,14 @@ injectGlobal`
     }
   }
 
+  .MuiSvgIcon-root {
+    color: var(--text-color)
+  }
+
+  .MuiTypography-h6 {
+    color: var(--primary-color)
+  }
+
   .MuiListSubheader-root {
     font-size: 20px;
     color: inherit;

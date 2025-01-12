@@ -3,6 +3,11 @@ export default {
     path: '/',
     title: 'Adina'
   },
+  home: {
+    path: '/about',
+    title: 'About | Adina',
+    data: [{ url: '/static-content/about', static: true }]
+  },
   posts: {
     path: '/posts',
     title: 'Posts | Adina',
@@ -10,7 +15,12 @@ export default {
   },
   post: {
     path: '/posts/:id',
-    data: [{ url: ({ id }) => `/api/posts/${id}` }, { url: ({ id }) => `/api/posts/${id}/comments` }],
-    preconnect: ['https://storage.googleapis.com/bucket', 'https://bucket.s3.amazonaws.com']
+    data: [
+      {
+        url: ({ id }) => `/api/posts/${id}`,
+        preconnect: ['https://storage.googleapis.com/bucket', 'https://bucket.s3.amazonaws.com']
+      },
+      { url: ({ id }) => `/api/posts/${id}/comments` }
+    ]
   }
 }

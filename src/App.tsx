@@ -50,7 +50,7 @@ const App: FC<{}> = () => {
         navigation={[
           { segment: getSegment('introduction'), title: 'Introduction' },
           { segment: getSegment('installation'), title: 'Installation' },
-          { kind: 'header', title: 'Files' },
+          { kind: 'header', title: 'Core' },
           { segment: getSegment('pages'), title: 'pages.js' },
           { segment: getSegment('rspack'), title: 'rspack.config.js' },
           { segment: getSegment('preload-assets'), title: 'preload-assets.js' },
@@ -59,12 +59,12 @@ const App: FC<{}> = () => {
           { segment: getSegment('extract-inline-scripts'), title: 'extract-inline-scripts.ts' },
           { segment: getSegment('service-worker-registration'), title: 'service-worker-registration.ts' },
           { segment: getSegment('service-worker'), title: 'service-worker.js' },
+          { segment: getSegment('data-preload'), title: 'data-preload.ts' },
           { kind: 'header', title: 'SEO' },
-          { segment: getSegment('googlebot'), title: 'Googlebot' },
+          { segment: getSegment('google'), title: 'Google' },
           { segment: getSegment('prerendering'), title: 'Prerendering' },
           { segment: getSegment('sitemap'), title: 'Sitemap' },
           { kind: 'header', title: 'Enhancements' },
-          { segment: getSegment('dynamic-data-preloading'), title: 'Dynamic Data Preloading' },
           { segment: getSegment('reusing-data'), title: 'Reusing Data' }
         ]}
       >
@@ -80,9 +80,11 @@ injectGlobal`
   nav.MuiBox-root {
     /* scrollbar-width: thin; */
 
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+    @media ${DESKTOP_VIEWPORT} {
+        ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
     }
   }
 
@@ -97,6 +99,10 @@ injectGlobal`
   .MuiListSubheader-root {
     font-size: 20px;
     color: inherit;
+  }
+
+  a.Mui-selected {
+    pointer-events: none;
   }
 `
 

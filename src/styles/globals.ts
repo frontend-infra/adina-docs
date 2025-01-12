@@ -22,63 +22,23 @@ injectGlobal`
 	}
 
   * {
-    /* scrollbar-color: var(--bg-color) var(--mui-palette-divider); */
-    
-    ::-webkit-scrollbar {
-      width: 12px;
-      height: 12px;
-    }
+    @media ${DESKTOP_VIEWPORT} {
+      /* scrollbar-color: var(--bg-color) var(--mui-palette-divider); */
 
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 10px;
-    }
+      /* ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      } */
 
-    ::-webkit-scrollbar-thumb {
-      background-color: var(--mui-palette-divider);
-      border-radius: 10px;
-    }
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--mui-palette-divider);
+      }
 
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: #555;
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+      }
     }
   }
 
-  ::view-transition-old(root) {
-    animation: slide-out 0.1s;
-
-    @media(${DESKTOP_VIEWPORT}) {
-      animation: none;
-    }
-  }
-
-  ::view-transition-new(root) {
-    animation: slide-in 0.1s;
-
-    @media(${DESKTOP_VIEWPORT}) {
-      animation: none;
-    }
-  }
-
-  @keyframes slide-out {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-  }
-
-  @keyframes slide-in {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
-  }
-
-  @keyframes fade-out {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
 
 	body {
 		font-family: 'Montserrat', sans-serif;

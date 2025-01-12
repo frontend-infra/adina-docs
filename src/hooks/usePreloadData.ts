@@ -1,8 +1,17 @@
 import { useEffect } from 'react'
 
+import { getDataPreloadHandlers, Events, DataType } from 'utils/data-preload'
+
 const preloadPageData = (href: string, matchingPage: any) => {
   // @ts-ignore
   if (href !== window.location.pathname) preloadData(matchingPage)
+}
+
+const preloadEvents: Events = {
+  onmouseenter: DataType.Static,
+  ontouchstart: DataType.Static,
+  onmousedown: DataType.Dynamic,
+  onclick: DataType.Dynamic
 }
 
 const usePreloadData = () => {
@@ -12,16 +21,10 @@ const usePreloadData = () => {
       const links = document.querySelectorAll('nav a')
 
       links.forEach(link => {
-        const href = link.getAttribute('href') as string
-        // @ts-ignore
-        const matchingPage = getMatchingPage(href)
+        const pathname = link.getAttribute('href') as string
+        const events = getDataPreloadHandlers(pathname, preloadEvents)
 
-        if (!matchingPage?.data) return
-
-        link.addEventListener('mousedown', () => preloadPageData(href, matchingPage))
-        link.addEventListener('touchstart', () => preloadPageData(href, matchingPage))
-
-        if (matchingPage.preloadOnHover) link.addEventListener('mouseenter', () => preloadPageData(href, matchingPage))
+        for (const event in events) link[event] = events[event]
       })
     })
   }, [])

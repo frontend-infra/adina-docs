@@ -3,10 +3,10 @@ import type { FC } from 'react'
 import pages from 'pages'
 import Page from 'components/Page'
 
-const { title } = pages.googlebot
+const { title } = pages.google
 
-const Googlebot: FC<{}> = () => {
+const Google: FC<{}> = () => {
   return <Page title={title}></Page>
 }
 
-export default Googlebot
+export default Google

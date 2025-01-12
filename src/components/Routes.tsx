@@ -17,12 +17,10 @@ const ServiceWorkerRegistration = lazy(
   () => import(/* webpackChunkName: 'service-worker-registration' */ 'pages/ServiceWorkerRegistration')
 )
 const ServiceWorker = lazy(() => import(/* webpackChunkName: 'service-worker' */ 'pages/ServiceWorker'))
-const Googlebot = lazy(() => import(/* webpackChunkName: 'googlebot' */ 'pages/Googlebot'))
+const Google = lazy(() => import(/* webpackChunkName: 'google' */ 'pages/Google'))
 const Prerendering = lazy(() => import(/* webpackChunkName: 'prerendering' */ 'pages/Prerendering'))
 const Sitemap = lazy(() => import(/* webpackChunkName: 'sitemap' */ 'pages/Sitemap'))
-const DynamicDataPreloading = lazy(
-  () => import(/* webpackChunkName: 'dynamic-data-preloading' */ 'pages/DynamicDataPreloading')
-)
+const DataPreload = lazy(() => import(/* webpackChunkName: 'dynamic-data-preloading' */ 'pages/DataPreload'))
 const ReusingData = lazy(() => import(/* webpackChunkName: 'reusing-data' */ 'pages/ReusingData'))
 
 const pageComponents = [
@@ -36,10 +34,10 @@ const pageComponents = [
   ExtractInlineScripts,
   ServiceWorkerRegistration,
   ServiceWorker,
-  Googlebot,
+  DataPreload,
+  Google,
   Prerendering,
   Sitemap,
-  DynamicDataPreloading,
   ReusingData
 ]
 

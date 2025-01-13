@@ -1,8 +1,9 @@
 <p>
-  Adina, stands for Adaptively Inlined Assets, is a set of extension files that seemlesly integrate into any
-  Webpack/Rspack client-side rendering project and improve its performance in an unprecedented way.
+  Adina (<strong>Ad</strong>aptively <strong>In</strong>lined <strong>A</strong>ssets) is a collection of extension
+  files that seamlessly integrate into any Webpack or Rspack client-side rendering project, enhancing the app's
+  performance in an <strong>unprecedented way</strong>.
   <br />
-  It was born from my thorough research of CSR:
+  It originated from my in-depth research on CSR:
   <a target="_blank" href="https://github.com/theninthsky/client-side-rendering"
     >https://github.com/theninthsky/client-side-rendering</a
   >
@@ -10,51 +11,115 @@
 
 <br />
 
-<p>This is how a regular code splitted app without Adina behaves:</p>
+<p>This is the request chain (waterfall) of a typical code-split app without Adina:</p>
 
 <br />
 
-<img
-  style="width: 100%"
-  src="https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/images/no-adina.png"
-/>
+<div style="display: inline-block; max-width: 100%; overflow-x: auto">
+  <svg xmlns="http://www.w3.org/2000/svg" width="940" height="90">
+    <rect x="10" y="25" width="120" height="50" fill="#FF5722" rx="4" />
+    <text x="70" y="55" font-size="12" text-anchor="middle" fill="white">Browser</text>
+
+    <line x1="130" y1="50" x2="210" y2="50" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <rect x="210" y="25" width="120" height="50" fill="#4CAF50" rx="4" />
+    <text x="270" y="55" font-size="12" text-anchor="middle" fill="white">Document</text>
+
+    <line x1="330" y1="50" x2="410" y2="50" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <rect x="410" y="25" width="120" height="50" fill="#2196F3" rx="4" />
+    <text x="470" y="55" font-size="12" text-anchor="middle" fill="white">Main Chunk</text>
+
+    <line x1="530" y1="50" x2="610" y2="50" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <rect x="610" y="25" width="120" height="50" fill="#FF9800" rx="4" />
+    <text x="670" y="55" font-size="12" text-anchor="middle" fill="white">Page Chunk</text>
+    <text x="670" y="15" font-size="12" text-anchor="middle" fill="currentColor">Visible</text>
+
+    <line x1="730" y1="50" x2="810" y2="50" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <rect x="810" y="25" width="120" height="50" fill="#9C27B0" rx="4" />
+    <text x="870" y="55" font-size="12" text-anchor="middle" fill="white">Page Data</text>
+    <text x="870" y="15" font-size="12" text-anchor="middle" fill="currentColor">Done</text>
+
+    <defs>
+      <marker id="arrowhead" viewBox="0 0 8 8" refX="8" refY="4" orient="auto" markerWidth="6" markerHeight="6">
+        <polygon points="0,0 8,4 0,8" fill="currentColor" />
+      </marker>
+    </defs>
+  </svg>
+</div>
 
 <br />
 <br />
 
 <p>
-  We can see that the data request is only sent after the page is loaded, and that the page's scripts are requested only
-  after the initial (main) script executes.
+  We can observe that the data request is made only when the page is visible, and the page's scripts are requested only
+  after the initial (main) script has executed.
 </p>
 
 <br />
 
 <p>
-  Adina, when used to its fullest potential (using an edge worker), can split the bundle into many small pieces,
-  comprised of its installed packages (vendors) and the pages themselves, and then inline only the requested page
-  scripts in the document response, allowing the app to be fully visible incredibly fast and in a single roundtrip!
+  When used to its full potential (with an edge worker), Adina can break the bundle into numerous small pieces,
+  including its installed dependencies (packages, vendors) and the pages themselves. It then inlines only the requested
+  page scripts in the initial document response. This enables the app to become visible incredibly fast, all within a
+  single roundtrip!
 </p>
 
 <br />
 
-<img
-  style="width: 100%"
-  src="https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/images/adina.png"
-/>
+<div style="display: inline-block; max-width: 100%; overflow-x: auto">
+  <svg xmlns="http://www.w3.org/2000/svg" width="540" height="110">
+    <rect x="10" y="25" width="120" height="50" fill="#FF5722" rx="4" />
+    <text x="70" y="55" font-size="12" text-anchor="middle" fill="white">Browser</text>
+
+    <line x1="130" y1="50" x2="210" y2="50" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <rect x="210" y="25" width="120" height="50" fill="#4CAF50" rx="4" />
+    <text x="270" y="55" font-size="12" text-anchor="middle" fill="white">Document</text>
+    <text x="270" y="15" font-size="12" text-anchor="middle" fill="currentColor">Visible</text>
+    <text x="270" y="90" font-size="10" text-anchor="middle" fill="#2196F3">Main Chunk</text>
+    <text x="270" y="105" font-size="10" text-anchor="middle" fill="#FF9800">Page Chunk</text>
+
+    <line x1="330" y1="50" x2="410" y2="50" stroke="currentColor" stroke-width="2" marker-end="url(#arrowhead)" />
+
+    <rect x="410" y="25" width="120" height="50" fill="#9C27B0" rx="4" />
+    <text x="470" y="55" font-size="12" text-anchor="middle" fill="white">Page Data</text>
+    <text x="470" y="15" font-size="12" text-anchor="middle" fill="currentColor">Done</text>
+
+    <defs>
+      <marker id="arrowhead" viewBox="0 0 8 8" refX="8" refY="4" orient="auto" markerWidth="6" markerHeight="6">
+        <polygon points="0,0 8,4 0,8" fill="currentColor" />
+      </marker>
+    </defs>
+  </svg>
+</div>
 
 <br />
 <br />
 
 <p>
-  When the page is loaded again, only missing assets will be injected (inlined) into the document.
+  Data requests are sent as soon as the document's <code>head</code> is downloaded, without waiting for the inline
+  scripts to be downloaded.
+</p>
+
+<br />
+
+<p>
+  After the page is loaded, the inline scripts are extracted from the document and passed to a service worker for
+  caching.
+
   <br />
-  If no assets are missing, the edge worker will respond with a <em>304 Not Modified</em> status code, and no addional
-  data will be used:
+
+  Upon reloading the page, only the missing assets are injected (inlined) into the document.
+
+  <br />
+
+  If no assets are missing, the edge worker responds with a <em>304 Not Modified</em> status code, and no additional
+  data is transferred.
 </p>
 
 <br />
 
-<img
-  style="width: 100%"
-  src="https://raw.githubusercontent.com/frontend-infra/adina/main/images/adina-repeated-load.png"
-/>
+<p>Adina also splits page dependencies, allowing them to be shared across pages.</p>

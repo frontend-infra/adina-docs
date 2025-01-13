@@ -26,8 +26,8 @@ const InjectAssetsPlugin: FC<{}> = () => {
 
 const style = {
   code: css`
-    min-width: 1141px;
-    min-height: 2224px;
+    min-width: 1103px;
+    min-height: 2156px;
   `,
   content: css`
     margin-top: 40px;

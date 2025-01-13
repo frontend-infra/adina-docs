@@ -1,7 +1,8 @@
 export default {
   introduction: {
     path: '/',
-    title: 'Introduction'
+    title: 'Introduction',
+    data: [{ url: '/content/introduction.htm', static: true, preconnect: ['https://raw.githubusercontent.com/'] }]
   },
   installation: {
     path: '/installation',

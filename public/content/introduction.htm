@@ -1,0 +1,60 @@
+<p>
+  Adina, stands for Adaptively Inlined Assets, is a set of extension files that seemlesly integrate into any
+  Webpack/Rspack client-side rendering project and improve its performance in an unprecedented way.
+  <br />
+  It was born from my thorough research of CSR:
+  <a target="_blank" href="https://github.com/theninthsky/client-side-rendering"
+    >https://github.com/theninthsky/client-side-rendering</a
+  >
+</p>
+
+<br />
+
+<p>This is how a regular code splitted app without Adina behaves:</p>
+
+<br />
+
+<img
+  style="width: 100%"
+  src="https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/images/no-adina.png"
+/>
+
+<br />
+<br />
+
+<p>
+  We can see that the data request is only sent after the page is loaded, and that the page's scripts are requested only
+  after the initial (main) script executes.
+</p>
+
+<br />
+
+<p>
+  Adina, when used to its fullest potential (using an edge worker), can split the bundle into many small pieces,
+  comprised of its installed packages (vendors) and the pages themselves, and then inline only the requested page
+  scripts in the document response, allowing the app to be fully visible incredibly fast and in a single roundtrip!
+</p>
+
+<br />
+
+<img
+  style="width: 100%"
+  src="https://raw.githubusercontent.com/frontend-infra/adina/refs/heads/main/images/adina.png"
+/>
+
+<br />
+<br />
+
+<p>
+  When the page is loaded again, only missing assets will be injected (inlined) into the document.
+  <br />
+  If no assets are missing, the edge worker will respond with a <em>304 Not Modified</em> status code, and no addional
+  data will be used:
+</p>
+
+<br />
+
+<img
+  style="width: 100%"
+  src="https://raw.githubusercontent.com/frontend-infra/adina/main/images/adina-repeated-load.png"
+/>

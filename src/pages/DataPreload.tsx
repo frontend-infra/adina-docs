@@ -26,8 +26,8 @@ const DataPreload: FC<{}> = () => {
 
 const style = {
   code: css`
-    min-width: 980px;
-    min-height: 1336px;
+    min-width: 862px;
+    min-height: 1436px;
   `,
   content: css`
     margin-top: 40px;

@@ -6,7 +6,7 @@ export default {
   home: {
     path: '/about',
     title: 'About | Adina',
-    data: [{ url: '/static-content/about', static: true }]
+    data: [{ url: '/content/about.html', static: true }]
   },
   posts: {
     path: '/posts',

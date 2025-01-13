@@ -26,8 +26,8 @@ const PreloadAssets: FC<{}> = () => {
 
 const style = {
   code: css`
-    min-width: 1123px;
-    min-height: 1432px;
+    min-width: 1032px;
+    min-height: 2324px;
   `,
   content: css`
     margin-top: 40px;

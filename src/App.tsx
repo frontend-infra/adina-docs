@@ -26,8 +26,8 @@ const App: FC<{}> = () => {
     <AppProvider>
       <DashboardLayout
         branding={{
-          logo: <img src="https://mui.com/static/logo.png" alt="Adina logo" />,
-          title: 'Adina',
+          logo: <span></span>,
+          title: 'ADINA',
           homeUrl: '/'
         }}
         disableCollapsibleSidebar={desktop}
@@ -93,15 +93,30 @@ injectGlobal`
   }
 
   .MuiTypography-h6 {
-    color: var(--primary-color)
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: var(--text-color)
   }
 
   .MuiListSubheader-root {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 500;
     color: inherit;
   }
 
-  a.Mui-selected {
+  .MuiListItemButton-root {
+    opacity: 0.6;
+    transition: none;
+
+    :hover {
+      opacity: 1;
+      background-color: transparent;
+    }
+  }
+
+  .Mui-selected {
+    opacity: 1;
+    background-color: transparent !important;
     pointer-events: none;
   }
 `

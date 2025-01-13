@@ -78,8 +78,6 @@ const App: FC<{}> = () => {
 
 injectGlobal`
   nav.MuiBox-root {
-    /* scrollbar-width: thin; */
-
     @media ${DESKTOP_VIEWPORT} {
         ::-webkit-scrollbar {
         width: 8px;
@@ -92,6 +90,10 @@ injectGlobal`
     color: var(--text-color)
   }
 
+  .MuiTypography-root {
+    font-family: inherit;
+  }
+
   .MuiTypography-h6 {
     font-weight: 500;
     letter-spacing: 4px;
@@ -99,14 +101,23 @@ injectGlobal`
   }
 
   .MuiListSubheader-root {
+    font-family: inherit;
     font-size: 18px;
     font-weight: 500;
     color: inherit;
   }
 
   .MuiListItemButton-root {
-    opacity: 0.6;
-    transition: none;
+    height: 44px;
+    opacity: 0.65;
+
+    .MuiListItemText-root {
+      margin: 0;
+    }
+
+    .MuiTouchRipple-root {
+      display: none;
+    }
 
     :hover {
       opacity: 1;
@@ -114,10 +125,14 @@ injectGlobal`
     }
   }
 
-  .Mui-selected {
+  .MuiListItemButton-root.Mui-selected {
     opacity: 1;
     background-color: transparent !important;
     pointer-events: none;
+
+    .MuiListItemText-primary {
+      font-weight: 500;
+    }
   }
 `
 
@@ -131,7 +146,7 @@ const style = {
     color: var(--text-color);
 
     :hover {
-      opacity: 0.5;
+      opacity: 0.6;
     }
   `
 }

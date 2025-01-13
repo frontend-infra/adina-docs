@@ -22,6 +22,8 @@ injectGlobal`
 	}
 
   * {
+    transition: opacity 0.2s !important;
+
     @media ${DESKTOP_VIEWPORT} {
       /* scrollbar-color: var(--bg-color) var(--mui-palette-divider); */
 

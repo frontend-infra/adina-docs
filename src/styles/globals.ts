@@ -11,6 +11,8 @@ injectGlobal`
     --mui-palette-text-primary: #24292e;
     --mui-palette-background-paper: #fff;
     --mui-palette-divider: #e1e4e8;
+    --hover-opacity: 0.5;
+    --hover-transition: opacity 0.2s;
 	}
 
 	[data-theme='dark'] {
@@ -22,8 +24,6 @@ injectGlobal`
 	}
 
   * {
-    transition: opacity 0.2s !important;
-
     @media ${DESKTOP_VIEWPORT} {
       /* scrollbar-color: var(--bg-color) var(--mui-palette-divider); */
 
@@ -38,6 +38,12 @@ injectGlobal`
       ::-webkit-scrollbar-thumb:hover {
         background-color: #555;
       }
+    }
+
+    @media (hover: none) {
+      :hover {
+        opacity: 1 !important;
+      } 
     }
   }
 

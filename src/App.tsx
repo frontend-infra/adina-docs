@@ -48,7 +48,6 @@ const App: FC<{}> = () => {
           )
         }}
         navigation={[
-          { segment: getSegment('introduction'), title: 'Introduction' },
           { segment: getSegment('installation'), title: 'Installation' },
           { kind: 'header', title: 'Core' },
           { segment: getSegment('pages'), title: 'pages.js' },
@@ -77,12 +76,9 @@ const App: FC<{}> = () => {
 }
 
 injectGlobal`
-  nav.MuiBox-root {
+  .MuiToolbar-root {
     @media ${DESKTOP_VIEWPORT} {
-        ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
+      padding: 0 200px;
     }
   }
 
@@ -96,8 +92,23 @@ injectGlobal`
 
   .MuiTypography-h6 {
     font-weight: 500;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
     color: var(--text-color)
+  }
+
+  .MuiDrawer-paper {
+    @media ${DESKTOP_VIEWPORT} {
+      left: 200px;
+    }
+  }
+
+  nav.MuiBox-root {
+    @media ${DESKTOP_VIEWPORT} {
+        ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+    }
   }
 
   .MuiListSubheader-root {
@@ -110,6 +121,7 @@ injectGlobal`
   .MuiListItemButton-root {
     height: 44px;
     opacity: 0.65;
+    transition: var(--hover-transition);
 
     .MuiListItemText-root {
       margin: 0;
@@ -144,9 +156,10 @@ const style = {
     height: 30px;
     margin-right: 20px;
     color: var(--text-color);
+    transition: var(--hover-transition);
 
     :hover {
-      opacity: 0.6;
+      opacity: var(--hover-opacity);
     }
   `
 }

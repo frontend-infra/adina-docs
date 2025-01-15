@@ -25,11 +25,10 @@ const style = {
     margin-left: auto;
     color: var(--text-color);
     cursor: pointer;
+    transition: var(--hover-transition);
 
-    @media (hover: hover) {
-      :hover {
-        opacity: 0.5;
-      }
+    :hover {
+      opacity: var(--hover-opacity);
     }
   `
 }

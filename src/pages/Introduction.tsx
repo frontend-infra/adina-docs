@@ -23,6 +23,15 @@ const Introduction: FC<{}> = () => {
 const style = {
   content: css`
     margin-top: 40px;
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    strong {
+      font-weight: 600;
+    }
   `
 }
 

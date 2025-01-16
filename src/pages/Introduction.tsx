@@ -4,6 +4,7 @@ import { css } from '@emotion/css'
 
 import pages from 'pages'
 import Page from 'components/Page'
+import Content from 'components/common/Content'
 
 const {
   title,
@@ -15,7 +16,7 @@ const Introduction: FC<{}> = () => {
 
   return (
     <Page title={title}>
-      <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
+      <Content className={style.content}>{content}</Content>
     </Page>
   )
 }

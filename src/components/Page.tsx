@@ -32,7 +32,7 @@ const style = {
     }
   `,
   path: css`
-    margin: 20px 0 25px;
+    margin: 40px 0 30px;
   `
 }
 

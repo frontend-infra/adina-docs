@@ -4,7 +4,8 @@ import { css } from '@emotion/css'
 
 import pages from 'pages'
 import Page from 'components/Page'
-import CodeSnippet from 'components/common/CodeSnippet'
+import Content from 'components/common/Content'
+import Code from 'components/common/Code'
 
 const {
   title,
@@ -17,9 +18,9 @@ const ServiceWorker: FC<{}> = () => {
 
   return (
     <Page title={title} path="/public">
-      <CodeSnippet className={style.code}>{code}</CodeSnippet>
+      <Code className={style.code}>{code}</Code>
 
-      <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
+      <Content className={style.content}>{content}</Content>
     </Page>
   )
 }

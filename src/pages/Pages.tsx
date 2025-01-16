@@ -4,7 +4,8 @@ import { css, cx } from '@emotion/css'
 
 import pages from 'pages'
 import Page from 'components/Page'
-import CodeSnippet from 'components/common/CodeSnippet'
+import Content from 'components/common/Content'
+import Code from 'components/common/Code'
 
 const {
   title,
@@ -19,12 +20,12 @@ const Pages: FC<{}> = () => {
   return (
     <Page title={title} path="/src">
       <section>Type Definition:</section>
-      <CodeSnippet className={cx(style.code, style.definitionCode)}>{definitionCode}</CodeSnippet>
+      <Code className={cx(style.code, style.definitionCode)}>{definitionCode}</Code>
 
       <section>Example:</section>
-      <CodeSnippet className={cx(style.code, style.exampleCode)}>{exampleCode}</CodeSnippet>
+      <Code className={cx(style.code, style.exampleCode)}>{exampleCode}</Code>
 
-      <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
+      <Content className={style.content}>{content}</Content>
     </Page>
   )
 }
@@ -35,10 +36,10 @@ const style = {
     margin: 10px 0 25px 0;
   `,
   definitionCode: css`
-    min-height: 208px;
+    min-height: 332px;
   `,
   exampleCode: css`
-    min-height: 424px;
+    min-height: 644px;
   `,
   content: css`
     margin-top: 40px;

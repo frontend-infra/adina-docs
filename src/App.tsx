@@ -6,6 +6,7 @@ import { injectGlobal, css } from '@emotion/css'
 
 import pages from 'pages'
 import { DESKTOP_VIEWPORT } from 'styles/constants'
+import { getDataPreloadHandlers } from 'utils/data-preload'
 import useScrollToTop from 'hooks/useScrollToTop'
 import usePreloadData from 'hooks/usePreloadData'
 import ThemeSwitcher from 'components/common/ThemeSwitcher'
@@ -27,7 +28,8 @@ const App: FC<{}> = () => {
       <DashboardLayout
         branding={{
           logo: <span></span>,
-          title: 'ADINA',
+          // @ts-ignore
+          title: <span {...getDataPreloadHandlers('/')}>ADINA</span>,
           homeUrl: '/'
         }}
         disableCollapsibleSidebar={desktop}

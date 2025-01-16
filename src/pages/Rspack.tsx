@@ -4,7 +4,8 @@ import { css } from '@emotion/css'
 
 import pages from 'pages'
 import Page from 'components/Page'
-import CodeSnippet from 'components/common/CodeSnippet'
+import Content from 'components/common/Content'
+import Code from 'components/common/Code'
 
 const {
   title,
@@ -12,24 +13,30 @@ const {
 } = pages.rspack
 
 const Rspack: FC<{}> = () => {
+  const { data: { overview, analysis } = {} } = useFetch(contentRequest.url)
   const { data: code } = useFetch(codeRequest.url)
-  const { data: content } = useFetch(contentRequest.url)
 
   return (
     <Page title={title} path="/">
-      <CodeSnippet className={style.code}>{code}</CodeSnippet>
+      <Content className={style.overview}>{overview}</Content>
 
-      <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
+      <Code className={style.code}>{code}</Code>
+
+      <Content className={style.analysis}>{analysis}</Content>
     </Page>
   )
 }
 
 const style = {
+  overview: css`
+    min-height: 76px;
+  `,
   code: css`
     min-width: 980px;
     min-height: 1432px;
+    margin-top: 40px;
   `,
-  content: css`
+  analysis: css`
     margin-top: 40px;
   `
 }

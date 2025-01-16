@@ -4,7 +4,8 @@ import { css, cx } from '@emotion/css'
 
 import pages from 'pages'
 import Page from 'components/Page'
-import CodeSnippet from 'components/common/CodeSnippet'
+import Content from 'components/common/Content'
+import Code from 'components/common/Code'
 
 const {
   title,
@@ -18,17 +19,17 @@ const Installation: FC<{}> = () => {
 
   return (
     <Page title={title} path="/">
-      <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
+      <Content className={style.content}>{content}</Content>
 
       <section className={style.section}>Linux/MacOS</section>
-      <CodeSnippet className={cx(style.code, style.unixScript)} plainText>
+      <Code className={cx(style.code, style.unixScript)} plainText>
         {unixScript}
-      </CodeSnippet>
+      </Code>
 
       <section className={style.section}>Windows (PowerShell)</section>
-      <CodeSnippet className={cx(style.code, style.windowsScript)} plainText>
+      <Code className={cx(style.code, style.windowsScript)} plainText>
         {windowsScript}
-      </CodeSnippet>
+      </Code>
     </Page>
   )
 }

@@ -2,11 +2,6 @@ import { useEffect } from 'react'
 
 import { getDataPreloadHandlers, Events, DataType } from 'utils/data-preload'
 
-const preloadPageData = (href: string, matchingPage: any) => {
-  // @ts-ignore
-  if (href !== window.location.pathname) preloadData(matchingPage)
-}
-
 const preloadEvents: Events = {
   onmouseenter: DataType.Static,
   ontouchstart: DataType.Static,

@@ -8,13 +8,13 @@ import { MOBILE_VIEWPORT } from 'styles/constants'
 
 Light.registerLanguage('typescript', typescript)
 
-export type CodeSnippetProps = {
+export type CodeProps = {
   className?: string
   plainText?: boolean
   children: ReactNode
 }
 
-const CodeSnippet: FC<CodeSnippetProps> = ({ className, plainText, ...props }) => (
+const Code: FC<CodeProps> = ({ className, plainText, ...props }) => (
   <Light
     className={cx(style.wrapper, className)}
     style={dark}
@@ -35,4 +35,4 @@ const style = {
   `
 }
 
-export default CodeSnippet
+export default Code

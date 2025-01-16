@@ -4,7 +4,8 @@ import { css } from '@emotion/css'
 
 import pages from 'pages'
 import Page from 'components/Page'
-import CodeSnippet from 'components/common/CodeSnippet'
+import Content from 'components/common/Content'
+import Code from 'components/common/Code'
 
 const {
   title,
@@ -17,9 +18,11 @@ const DataPreload: FC<{}> = () => {
 
   return (
     <Page title={title} path="/src/utils">
-      <CodeSnippet className={style.code}>{code}</CodeSnippet>
+      <Content>{content}</Content>
 
-      <div className={style.content} dangerouslySetInnerHTML={{ __html: content }}></div>
+      <Code className={style.code}>{code}</Code>
+
+      <Content>{content}</Content>
     </Page>
   )
 }

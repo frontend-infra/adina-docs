@@ -1,14 +1,26 @@
+import type { FC, ReactNode } from 'react'
 import { Light } from 'react-syntax-highlighter'
 import dark from 'react-syntax-highlighter/dist/esm/styles/hljs/dark'
-import ts from 'react-syntax-highlighter/dist/esm/languages/hljs/typescript'
+import typescript from 'react-syntax-highlighter/dist/esm/languages/hljs/typescript'
 import { css, cx } from '@emotion/css'
 
 import { MOBILE_VIEWPORT } from 'styles/constants'
 
-Light.registerLanguage('typescript', ts)
+Light.registerLanguage('typescript', typescript)
 
-const CodeSnippet = ({ className, ...props }) => (
-  <Light className={cx(style.wrapper, className)} style={dark} language="typescript" {...props} />
+export type CodeSnippetProps = {
+  className?: string
+  plainText?: boolean
+  children: ReactNode
+}
+
+const CodeSnippet: FC<CodeSnippetProps> = ({ className, plainText, ...props }) => (
+  <Light
+    className={cx(style.wrapper, className)}
+    style={dark}
+    language={plainText ? 'text' : 'typescript'}
+    {...props}
+  />
 )
 
 const style = {

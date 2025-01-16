@@ -17,6 +17,7 @@ const style = {
   `,
   path: css`
     font-weight: 600;
+    color: #fff;
   `
 }
 

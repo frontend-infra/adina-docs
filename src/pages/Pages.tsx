@@ -8,13 +8,13 @@ import CodeSnippet from 'components/common/CodeSnippet'
 
 const {
   title,
-  data: [definitionCodeData, exampleCodeData, contentData]
+  data: [definitionCodeRequest, exampleCodeRequest, contentRequest]
 } = pages.pages
 
 const Pages: FC<{}> = () => {
-  const { data: definitionCode } = useFetch(definitionCodeData.url)
-  const { data: exampleCode } = useFetch(exampleCodeData.url)
-  const { data: content } = useFetch(contentData.url)
+  const { data: definitionCode } = useFetch(definitionCodeRequest.url)
+  const { data: exampleCode } = useFetch(exampleCodeRequest.url)
+  const { data: content } = useFetch(contentRequest.url)
 
   return (
     <Page title={title} path="/src">

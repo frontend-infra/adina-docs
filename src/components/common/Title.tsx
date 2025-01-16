@@ -12,7 +12,7 @@ const Title: FC<HTMLAttributes<HTMLHeadingElement>> = ({ className, children, ..
 const style = {
   wrapper: css`
     font-weight: 500;
-    color: var(--primary-color);
+    color: var(--text-color);
   `
 }
 

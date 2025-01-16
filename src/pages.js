@@ -6,7 +6,12 @@ export default {
   },
   installation: {
     path: '/installation',
-    title: 'Installation'
+    title: 'Installation',
+    data: [
+      { url: '/content/installation.htm', static: true },
+      { url: '/content/installation-script.sh', static: true },
+      { url: '/content/installation-script.ps1', static: true }
+    ]
   },
   pages: {
     path: '/pages',

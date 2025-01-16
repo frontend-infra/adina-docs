@@ -8,12 +8,12 @@ import CodeSnippet from 'components/common/CodeSnippet'
 
 const {
   title,
-  data: [codeData, contentData]
+  data: [codeRequest, contentRequest]
 } = pages['extract-inline-scripts']
 
 const ExtractInlineScripts: FC<{}> = () => {
-  const { data: code } = useFetch(codeData.url)
-  const { data: content } = useFetch(contentData.url)
+  const { data: code } = useFetch(codeRequest.url)
+  const { data: content } = useFetch(contentRequest.url)
 
   return (
     <Page title={title} path="/src/utils">

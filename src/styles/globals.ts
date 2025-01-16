@@ -4,7 +4,6 @@ import { DESKTOP_VIEWPORT } from './constants'
 
 injectGlobal`
 	:root {
-		--primary-color: dodgerblue;
     --secondary-color: #444444;
 		--text-color: #24292e;
 		--bg-color: #fff;

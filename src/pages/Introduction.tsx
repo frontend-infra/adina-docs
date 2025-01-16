@@ -7,11 +7,11 @@ import Page from 'components/Page'
 
 const {
   title,
-  data: [contentData]
+  data: [contentRequest]
 } = pages.introduction
 
 const Introduction: FC<{}> = () => {
-  const { data: content } = useFetch(contentData.url)
+  const { data: content } = useFetch(contentRequest.url)
 
   return (
     <Page title={title}>
@@ -25,8 +25,8 @@ const style = {
     margin-top: 40px;
 
     h2 {
-      font-size: 22px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 500;
     }
 
     strong {

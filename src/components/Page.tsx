@@ -15,7 +15,7 @@ type PageProps = HTMLAttributes<HTMLDivElement> & {
 const Page: FC<PageProps> = ({ title, path, contentVisible, children }) => {
   return (
     <div className={style.wrapper}>
-      <Meta title={`${title} | Adina`} description={''} image={`${window.location.origin}/icons/og-icon.png`} />
+      <Meta title={`${title} | Adina`} description={''} />
 
       <Title>{title}</Title>
 

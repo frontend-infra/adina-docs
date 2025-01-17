@@ -10,7 +10,7 @@ injectGlobal`
     --mui-palette-text-primary: #24292e;
     --mui-palette-background-paper: #fff;
     --mui-palette-divider: #e1e4e8;
-    --hover-opacity: 0.5;
+    --hover-opacity: 0.65;
     --hover-transition: opacity 0.2s;
 	}
 
@@ -45,7 +45,6 @@ injectGlobal`
       } 
     }
   }
-
 
 	body {
 		font-family: 'Montserrat', sans-serif;

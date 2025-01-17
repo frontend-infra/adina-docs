@@ -17,7 +17,7 @@ const PreloadAssets: FC<{}> = () => {
   const { data: content } = useFetch(contentRequest.url)
 
   return (
-    <Page title={title} path="/scripts">
+    <Page title={title} path="/scripts" contentVisible={code}>
       <Code className={style.code}>{code}</Code>
 
       <Content className={style.content}>{content}</Content>
@@ -28,7 +28,6 @@ const PreloadAssets: FC<{}> = () => {
 const style = {
   code: css`
     min-width: 1032px;
-    min-height: 2324px;
   `,
   content: css`
     margin-top: 40px;

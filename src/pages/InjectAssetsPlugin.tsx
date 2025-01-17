@@ -17,7 +17,7 @@ const InjectAssetsPlugin: FC<{}> = () => {
   const { data: content } = useFetch(contentRequest.url)
 
   return (
-    <Page title={title} path="/scripts">
+    <Page title={title} path="/scripts" contentVisible={code}>
       <Content>{content}</Content>
 
       <Code className={style.code}>{code}</Code>
@@ -30,7 +30,6 @@ const InjectAssetsPlugin: FC<{}> = () => {
 const style = {
   code: css`
     min-width: 1103px;
-    min-height: 2156px;
   `,
   content: css`
     margin-top: 40px;

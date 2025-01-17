@@ -15,7 +15,7 @@ const Introduction: FC<{}> = () => {
   const { data: content } = useFetch(contentRequest.url)
 
   return (
-    <Page title={title}>
+    <Page title={title} contentVisible={content}>
       <Content className={style.content}>{content}</Content>
     </Page>
   )

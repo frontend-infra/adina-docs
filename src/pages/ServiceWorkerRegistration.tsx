@@ -17,7 +17,7 @@ const ServiceWorkerRegistration: FC<{}> = () => {
   const { data: content } = useFetch(contentRequest.url)
 
   return (
-    <Page title={title} path="/src/utils">
+    <Page title={title} path="/src/utils" contentVisible={code}>
       <Code className={style.code}>{code}</Code>
 
       <Content className={style.content}>{content}</Content>
@@ -28,7 +28,6 @@ const ServiceWorkerRegistration: FC<{}> = () => {
 const style = {
   code: css`
     min-width: 980px;
-    min-height: 1336px;
   `,
   content: css`
     margin-top: 40px;

@@ -17,7 +17,7 @@ const ExtractInlineScripts: FC<{}> = () => {
   const { data: content } = useFetch(contentRequest.url)
 
   return (
-    <Page title={title} path="/src/utils">
+    <Page title={title} path="/src/utils" contentVisible={code}>
       <Content>{content}</Content>
 
       <Code className={style.code}>{code}</Code>
@@ -30,7 +30,6 @@ const ExtractInlineScripts: FC<{}> = () => {
 const style = {
   code: css`
     min-width: 1089px;
-    min-height: 280px;
   `,
   content: css`
     margin-top: 40px;

@@ -93,7 +93,7 @@ injectGlobal`
   }
 
   .MuiTypography-h6 {
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 5px;
     color: var(--text-color)
   }
@@ -122,7 +122,7 @@ injectGlobal`
 
   .MuiListItemButton-root {
     height: 44px;
-    opacity: 0.65;
+    opacity: var(--hover-opacity);
     transition: var(--hover-transition);
 
     .MuiListItemText-root {

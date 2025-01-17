@@ -17,7 +17,7 @@ const DataPreload: FC<{}> = () => {
   const { data: content } = useFetch(contentRequest.url)
 
   return (
-    <Page title={title} path="/src/utils">
+    <Page title={title} path="/src/utils" contentVisible={code}>
       <Content>{content}</Content>
 
       <Code className={style.code}>{code}</Code>
@@ -30,7 +30,6 @@ const DataPreload: FC<{}> = () => {
 const style = {
   code: css`
     min-width: 862px;
-    min-height: 1436px;
   `,
   content: css`
     margin-top: 40px;

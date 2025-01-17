@@ -6,7 +6,7 @@ import Page from 'components/Page'
 const { title } = pages.sitemap
 
 const Sitemap: FC<{}> = () => {
-  return <Page title={title}></Page>
+  return <Page title={title} contentVisible></Page>
 }
 
 export default Sitemap

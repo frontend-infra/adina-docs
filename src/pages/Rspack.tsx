@@ -17,8 +17,8 @@ const Rspack: FC<{}> = () => {
   const { data: code } = useFetch(codeRequest.url)
 
   return (
-    <Page title={title} path="/">
-      <Content className={style.overview}>{overview}</Content>
+    <Page title={title} path="/" contentVisible={overview && code}>
+      <Content>{overview}</Content>
 
       <Code className={style.code}>{code}</Code>
 
@@ -28,12 +28,8 @@ const Rspack: FC<{}> = () => {
 }
 
 const style = {
-  overview: css`
-    min-height: 76px;
-  `,
   code: css`
     min-width: 980px;
-    min-height: 1432px;
     margin-top: 40px;
   `,
   analysis: css`

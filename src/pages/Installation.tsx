@@ -18,16 +18,16 @@ const Installation: FC<{}> = () => {
   const { data: windowsScript } = useFetch(windowsScriptRequest.url)
 
   return (
-    <Page title={title} path="/">
+    <Page title={title} path="/" contentVisible={content && unixScript && windowsScript}>
       <Content className={style.content}>{content}</Content>
 
       <section className={style.section}>Linux/MacOS</section>
-      <Code className={cx(style.code, style.unixScript)} plainText>
+      <Code className={style.code} plainText>
         {unixScript}
       </Code>
 
       <section className={style.section}>Windows (PowerShell)</section>
-      <Code className={cx(style.code, style.windowsScript)} plainText>
+      <Code className={style.code} plainText>
         {windowsScript}
       </Code>
     </Page>
@@ -36,7 +36,6 @@ const Installation: FC<{}> = () => {
 
 const style = {
   content: css`
-    min-height: 144px;
     margin-bottom: 30px;
 
     strong {
@@ -47,14 +46,7 @@ const style = {
     font-weight: 600;
   `,
   code: css`
-    min-width: 1142px;
     margin: 10px 0 40px 0;
-  `,
-  unixScript: css`
-    min-height: 1261px;
-  `,
-  windowsScript: css`
-    min-height: 1237px;
   `
 }
 

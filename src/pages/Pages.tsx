@@ -18,12 +18,12 @@ const Pages: FC<{}> = () => {
   const { data: content } = useFetch(contentRequest.url)
 
   return (
-    <Page title={title} path="/src">
+    <Page title={title} path="/src" contentVisible={definitionCode && exampleCode}>
       <section>Type Definition:</section>
-      <Code className={cx(style.code, style.definitionCode)}>{definitionCode}</Code>
+      <Code className={style.code}>{definitionCode}</Code>
 
       <section>Example:</section>
-      <Code className={cx(style.code, style.exampleCode)}>{exampleCode}</Code>
+      <Code className={style.code}>{exampleCode}</Code>
 
       <Content className={style.content}>{content}</Content>
     </Page>
@@ -34,12 +34,6 @@ const style = {
   code: css`
     min-width: 964px;
     margin: 10px 0 25px 0;
-  `,
-  definitionCode: css`
-    min-height: 332px;
-  `,
-  exampleCode: css`
-    min-height: 644px;
   `,
   content: css`
     margin-top: 40px;

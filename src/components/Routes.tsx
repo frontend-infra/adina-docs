@@ -4,6 +4,7 @@ import { Routes as RouterRoutes, Route, Navigate } from 'react-router-dom'
 import pages from 'pages'
 
 const Introduction = lazy(() => import(/* webpackChunkName: 'introduction' */ 'pages/Introduction'))
+const Motivation = lazy(() => import(/* webpackChunkName: 'motivation' */ 'pages/Motivation'))
 const Installation = lazy(() => import(/* webpackChunkName: 'installation' */ 'pages/Installation'))
 const Pages = lazy(() => import(/* webpackChunkName: 'pages' */ 'pages/Pages'))
 const Rspack = lazy(() => import(/* webpackChunkName: 'rspack' */ 'pages/Rspack'))
@@ -25,6 +26,7 @@ const ReusingData = lazy(() => import(/* webpackChunkName: 'reusing-data' */ 'pa
 
 const pageComponents = [
   Introduction,
+  Motivation,
   Installation,
   Pages,
   Rspack,

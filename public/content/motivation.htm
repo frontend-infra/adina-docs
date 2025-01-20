@@ -1,0 +1,30 @@
+<pre>
+<em>"Recently, SSR (Server Side Rendering) has taken the JavaScript front-end world by storm. The fact that you can now render your sites and apps on the server before sending them to your clients is an absolutely revolutionary idea (and totally not what everyone was doing before JS client-side apps got popular in the first place...).
+
+However, the same criticisms that were valid for PHP, ASP, JSP, (and such) sites are valid for server-side rendering today. It's slow, breaks fairly easily, and is difficult to implement properly.
+
+Thing is, despite what everyone might be telling you, you probably don't need SSR. You can get almost all the advantages of it (without the disadvantages) by using prerendering."
+
+~Prerender SPA Plugin</em>
+
+In recent years, server-side rendering has gained significant popularity in the form of frameworks such as Next.js and Remix to the point that developers often default to using them without fully understanding their limitations, even in apps that don't need SEO (e.g., those with login requirements).
+While SSR has its advantages, these frameworks continue to emphasize their speed ("Performance as a default"), suggesting that client-side rendering (CSR) is inherently slow.
+Additionally, there is a widespread misconception that perfect SEO can only be achieved with SSR, and that CSR apps cannot be optimized for search engine crawlers.
+
+Another common argument for SSR is that as web apps grow larger, their loading times will continue to increase, leading to poor FCP performance for CSR apps.
+
+While it's true that apps are becoming more feature-rich, the size of a single page should actually decrease over time.
+This is due to the trend of creating smaller, more efficient versions of libraries and frameworks, such as zustand, day.js, headless-ui, and react-router v6.
+We can also observe a reduction in the size of frameworks over time: Angular (74.1kb), React (44.5kb), Vue (34kb), Solid (7.6kb), and Svelte (1.7kb).
+These libraries contribute significantly to the overall weight of a web page's scripts.
+With proper code-splitting, the initial loading time of a page could decrease over time.
+
+This project implements a basic CSR app with optimizations like code-splitting and preloading. The goal is for the loading time of individual pages to remain stable as the app scales.
+The objective is to simulate a production-grade app's package structure and minimize loading times through parallelized requests.
+
+It's important to note that improving performance should not come at the cost of developer experience. Therefore, the architecture of this project will be only slightly modified from a typical React setup, avoiding the rigid, opinionated structure of frameworks like Next.js, or the limitations of SSR in general.
+
+I believe that instead running away to SSR, we should leaverage CSR's natural strengths while striving to eliminate its weak points.
+
+Adina focuses on two aspects: performance and SEO.
+</pre>

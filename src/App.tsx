@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useMedia } from 'frontend-essentials'
-import { AppProvider } from '@toolpad/core/react-router-dom'
+import { ReactRouterAppProvider as AppProvider } from '@toolpad/core/react-router'
 import { DashboardLayout } from '@toolpad/core/DashboardLayout'
 import { injectGlobal, css } from '@emotion/css'
 
@@ -10,7 +10,6 @@ import { getDataPreloadHandlers } from 'utils/data-preload'
 import useScrollToTop from 'hooks/useScrollToTop'
 import usePreloadData from 'hooks/usePreloadData'
 import ThemeSwitcher from 'components/common/ThemeSwitcher'
-import Layout from 'components/Layout'
 import Routes from 'components/Routes'
 import GitHubIcon from 'images/github.svg'
 
@@ -50,6 +49,8 @@ const App: FC<{}> = () => {
           )
         }}
         navigation={[
+          { segment: getSegment('introduction'), title: 'Introduction' },
+          { segment: getSegment('motivation'), title: 'Motivation' },
           { segment: getSegment('installation'), title: 'Installation' },
           { kind: 'header', title: 'Core' },
           { segment: getSegment('pages'), title: 'pages.js' },
@@ -69,9 +70,7 @@ const App: FC<{}> = () => {
           { segment: getSegment('reusing-data'), title: 'Reusing Data' }
         ]}
       >
-        <Layout>
-          <Routes />
-        </Layout>
+        <Routes />
       </DashboardLayout>
     </AppProvider>
   )
@@ -80,7 +79,7 @@ const App: FC<{}> = () => {
 injectGlobal`
   .MuiToolbar-root {
     @media ${DESKTOP_VIEWPORT} {
-      padding: 0 200px;
+      padding: 0 13vw;
     }
   }
 
@@ -100,7 +99,7 @@ injectGlobal`
 
   .MuiDrawer-paper {
     @media ${DESKTOP_VIEWPORT} {
-      left: 200px;
+      left: 13vw;
     }
   }
 
@@ -142,7 +141,6 @@ injectGlobal`
   .MuiListItemButton-root.Mui-selected {
     opacity: 1;
     background-color: transparent !important;
-    pointer-events: none;
 
     .MuiListItemText-primary {
       font-weight: 500;

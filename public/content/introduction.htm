@@ -2,31 +2,14 @@
 
 <br />
 
-<p>
-  Adina (<strong>Ad</strong>aptively <strong>In</strong>lined <strong>A</strong>ssets) is a collection of extension
-  files that seamlessly integrate into any Webpack or Rspack client-side rendering project, enhancing the app's
-  performance in an unprecedented way.
-  <br />
-  It originated from my in-depth research on CSR:
-  <a target="_blank" href="https://github.com/theninthsky/client-side-rendering"
-    >https://github.com/theninthsky/client-side-rendering</a
-  >
-</p>
+<pre>
+Adina (<strong>Ad</strong>aptively <strong>In</strong>lined <strong>A</strong>ssets) is a collection of extension files that seamlessly integrate into any Webpack or Rspack client-side rendering project, enhancing the app's performance in an unprecedented way.
+It originated from my in-depth research on CSR: <a target="_blank" href="https://github.com/theninthsky/client-side-rendering">https://github.com/theninthsky/client-side-rendering</a>
 
-<br />
+The significance of Adina can be demonstrated through a simple request chain (waterfall) diagram.
+In this diagram, each arrow represents a request, and its height shows when the request is initiated. The higher the arrow, the sooner the request is sent.
 
-<p>
-  The significance of Adina can be demonstrated through a simple request chain (waterfall) diagram. <br />
-  In this diagram, each arrow represents a request, and its height shows when the request is initiated. The higher the
-  arrow, the sooner the request is sent.
-</p>
-
-<br />
-
-<p>This is the waterfall of a typical code-split app:</p>
-
-<br />
-
+This is the waterfall of a typical code-split app:
 <div style="display: inline-block; max-width: 100%; overflow-x: auto">
   <svg xmlns="http://www.w3.org/2000/svg" width="940" height="90">
     <rect x="10" y="25" width="120" height="50" fill="#FF5722" rx="4" />
@@ -61,30 +44,11 @@
     </defs>
   </svg>
 </div>
+We can observe that the data request is made only when the page is visible, and the page's scripts are requested only after the initial (main) script has executed.
 
-<br />
-<br />
+When used to its full potential (with an edge worker), Adina can break the bundle into numerous small pieces, including its installed dependencies (packages, vendors) and the pages themselves. It then inlines only the requested page scripts in the initial document response.
 
-<p>
-  We can observe that the data request is made only when the page is visible, and the page's scripts are requested only
-  after the initial (main) script has executed.
-</p>
-
-<br />
-
-<p>
-  When used to its full potential (with an edge worker), Adina can break the bundle into numerous small pieces,
-  including its installed dependencies (packages, vendors) and the pages themselves. It then inlines only the requested
-  page scripts in the initial document response.
-
-  <br />
-  <br />
-
-  As a result, this is the waterfall of Adina:
-</p>
-
-<br />
-
+As a result, this is the waterfall of Adina:
 <div style="display: inline-block; max-width: 100%; overflow-x: auto">
   <svg xmlns="http://www.w3.org/2000/svg" width="540" height="110">
     <rect x="10" y="25" width="120" height="50" fill="#FF5722" rx="4" />
@@ -111,37 +75,14 @@
     </defs>
   </svg>
 </div>
+This enables the app to become visible incredibly fast, as all essential assets are downloaded in a single roundtrip!
+In addition, data requests are queued as soon as the document's <code>head</code> is downloaded, before the HTML parser reaches the document's <code>body</code>.
 
-<br />
-<br />
+After the page is loaded, the inline scripts are extracted from the document and passed to a service worker for caching.
+Upon reloading the page, only the missing assets are injected (inlined) into the document.
+If no assets are missing, the edge worker responds with a <strong><em>304 Not Modified</em></strong> status code, and no additional data is transferred.
 
-<p>
-  This enables the app to become visible incredibly fast, as all essential assets are downloaded in a single roundtrip!
-  <br />
-  In addition, data requests are queued as soon as the document's <code>head</code> is downloaded, before the HTML
-  parser reaches the document's <code>body</code>.
-</p>
+Adina also split page dependencies, enabling them to be shared across different pages. Combined with the inlining of missing assets within the document, significantly enhances the app's resilience to cache invalidations, allowing it to load very quickly even when the cache is only partially available.
 
-<br />
-
-<p>
-  After the page is loaded, the inline scripts are extracted from the document and passed to a service worker for
-  caching.
-  <br />
-  Upon reloading the page, only the missing assets are injected (inlined) into the document.
-  <br />
-  If no assets are missing, the edge worker responds with a <strong><em>304 Not Modified</em></strong> status code, and
-  no additional data is transferred.
-</p>
-
-<br />
-
-<p>
-  Adina also split page dependencies, enabling them to be shared across different pages. Combined with the inlining of
-  missing assets within the document, significantly enhances the app's resilience to cache invalidations, allowing it to
-  load very quickly even when the cache is only partially available.
-</p>
-
-<br />
-
-<p>This website is built with Adina.</p>
+This website is built with Adina.
+</pre>

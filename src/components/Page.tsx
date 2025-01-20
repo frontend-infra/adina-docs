@@ -34,8 +34,11 @@ const animations = {
 
 const style = {
   wrapper: css`
+    position: relative;
+    margin: 20px;
+
     @media ${DESKTOP_VIEWPORT} {
-      margin: 20px 200px 25px;
+      margin: 20px calc(15vw + 20px) 25px;
     }
   `,
   path: css`

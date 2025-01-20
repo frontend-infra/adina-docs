@@ -4,6 +4,11 @@ export default {
     title: 'Introduction',
     data: [{ url: '/content/introduction.htm', static: true }]
   },
+  motivation: {
+    path: '/motivation',
+    title: 'Motivation',
+    data: [{ url: '/content/motivation.htm', static: true }]
+  },
   installation: {
     path: '/installation',
     title: 'Installation',

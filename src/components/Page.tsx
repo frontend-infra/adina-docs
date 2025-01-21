@@ -24,7 +24,7 @@ const Page: FC<PageProps> = ({ title, path, loading, children }) => {
 
       {path && <Path className={style.path}>{path}</Path>}
 
-      {loading ? <span className={style.loading}>Loading...</span> : <main>{children}</main>}
+      {loading ? <span className={style.loading}>Loading...</span> : <main className={style.main}>{children}</main>}
     </div>
   )
 }
@@ -40,6 +40,27 @@ const style = {
     position: relative;
     margin: 20px;
 
+    @media ${DESKTOP_VIEWPORT} {
+      margin: 20px calc(15vw + 20px) 25px;
+    }
+  `,
+  title: css`
+    margin-bottom: 40px;
+  `,
+  path: css`
+    margin-bottom: 30px;
+  `,
+  loading: css`
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 33vh;
+    opacity: 0;
+    color: var(--text-color);
+    animation: ${animations.fadeIn} 0.2s linear 1s forwards;
+    user-select: none;
+  `,
+  main: css`
     h2,
     h3 {
       font-size: 20px;
@@ -64,25 +85,9 @@ const style = {
       font-weight: 600;
     }
 
-    @media ${DESKTOP_VIEWPORT} {
-      margin: 20px calc(15vw + 20px) 25px;
+    .hljs-title.class_ {
+      color: #ffa657;
     }
-  `,
-  title: css`
-    margin-bottom: 40px;
-  `,
-  path: css`
-    margin-bottom: 30px;
-  `,
-  loading: css`
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    margin-top: 33vh;
-    opacity: 0;
-    color: var(--text-color);
-    animation: ${animations.fadeIn} 0.2s linear 1s forwards;
-    user-select: none;
   `
 }
 

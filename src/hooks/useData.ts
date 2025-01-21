@@ -6,7 +6,7 @@ const useData = (contentUrl: string, codeUrl?: string) => {
 
   if (!content || (codeUrl && !code)) return
 
-  return content.replace('INJECTED_CODE', code)
+  return content.replace('INJECTED_CODE', () => code)
 }
 
 export default useData

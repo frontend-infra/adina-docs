@@ -52,11 +52,6 @@ injectGlobal`
 		background-color: var(--bg-color);
 	}
 
-  pre {
-    white-space: pre-wrap;
-    font-family: 'Montserrat', sans-serif;
-  }
-
 	svg {
 		fill: currentColor;
 	}

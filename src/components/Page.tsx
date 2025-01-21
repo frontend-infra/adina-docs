@@ -3,25 +3,28 @@ import { Meta } from 'frontend-essentials'
 import { css, keyframes } from '@emotion/css'
 
 import { DESKTOP_VIEWPORT } from 'styles/constants'
+import useHighlight from 'hooks/useHighlight'
 import Title from 'components/common/Title'
 import Path from 'components/common/Path'
 
 type PageProps = HTMLAttributes<HTMLDivElement> & {
   title: string
   path?: string
-  contentVisible: boolean
+  loading?: boolean
 }
 
-const Page: FC<PageProps> = ({ title, path, contentVisible, children }) => {
+const Page: FC<PageProps> = ({ title, path, loading, children }) => {
+  useHighlight()
+
   return (
     <div className={style.wrapper}>
       <Meta title={`${title} | Adina`} description={''} />
 
-      <Title>{title}</Title>
+      <Title className={style.title}>{title}</Title>
 
       {path && <Path className={style.path}>{path}</Path>}
 
-      {contentVisible ? children : <span className={style.loading}>Loading...</span>}
+      {loading ? <span className={style.loading}>Loading...</span> : <main>{children}</main>}
     </div>
   )
 }
@@ -37,12 +40,39 @@ const style = {
     position: relative;
     margin: 20px;
 
+    h2,
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    section {
+      margin-bottom: -15px;
+      font-weight: 500;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    code {
+      font-size: 12px;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
     @media ${DESKTOP_VIEWPORT} {
       margin: 20px calc(15vw + 20px) 25px;
     }
   `,
+  title: css`
+    margin-bottom: 40px;
+  `,
   path: css`
-    margin: 40px 0 30px;
+    margin-bottom: 30px;
   `,
   loading: css`
     position: absolute;

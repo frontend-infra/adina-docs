@@ -6,7 +6,7 @@ import Page from 'components/Page'
 const { title } = pages.google
 
 const Google: FC<{}> = () => {
-  return <Page title={title} contentVisible></Page>
+  return <Page title={title}></Page>
 }
 
 export default Google

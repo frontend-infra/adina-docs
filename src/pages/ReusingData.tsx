@@ -6,7 +6,7 @@ import Page from 'components/Page'
 const { title } = pages['reusing-data']
 
 const ReusingData: FC<{}> = () => {
-  return <Page title={title} contentVisible></Page>
+  return <Page title={title}></Page>
 }
 
 export default ReusingData

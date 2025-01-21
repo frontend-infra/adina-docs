@@ -1,0 +1,32 @@
+<h3>Overview</h3>
+
+<br />
+
+<pre>
+This Rspack configuration is responsible of splitting vendors and async vendors to separate chunks and injecting them to a service worker for later precaching.
+</pre>
+
+<br />
+
+<pre><code>INJECTED_CODE</code></pre>
+
+<br />
+
+<h3>In-Depth Analysis</h3>
+
+<br />
+
+<pre>
+The <strong>output</strong> object is set to save all script files under a <strong>scripts</strong> folder.
+
+The <strong>optimization</strong> object is set to split venders and async vendors to separate chunks while preventing duplications.
+During the optimization process, each vendor chunk is given its package name in addition to all the chunks that use it.
+
+For example:
+<em>
+react.main.e2c127.js
+react-router.main.b47e33.js
+tanstack.products.comparison.about.14f327.js
+</em>
+We set a lower 10kb limit for chunks to be split.
+</pre>

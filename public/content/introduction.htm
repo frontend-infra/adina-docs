@@ -76,7 +76,7 @@ As a result, this is the waterfall of Adina:
   </svg>
 </div>
 This enables the app to become visible incredibly fast, as all essential assets are downloaded in a single roundtrip!
-In addition, data requests are queued as soon as the document's <code>head</code> is downloaded, before the HTML parser reaches the document's <code>body</code>.
+In addition, data requests are queued as soon as the document's &lt;head&gt is downloaded, before the HTML parser reaches the document's &lt;body&gt.
 
 After the page is loaded, the inline scripts are extracted from the document and passed to a service worker for caching.
 Upon reloading the page, only the missing assets are injected (inlined) into the document.

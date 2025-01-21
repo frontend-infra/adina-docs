@@ -1,39 +1,23 @@
 import { FC } from 'react'
-import { useFetch } from 'frontend-essentials'
-import { css } from '@emotion/css'
 
 import pages from 'pages'
+import useData from 'hooks/useData'
 import Page from 'components/Page'
 import Content from 'components/common/Content'
-import Code from 'components/common/Code'
 
 const {
   title,
-  data: [codeRequest, contentRequest]
+  data: [contentRequest, codeRequest]
 } = pages['data-preload']
 
 const DataPreload: FC<{}> = () => {
-  const { data: code } = useFetch(codeRequest.url)
-  const { data: content } = useFetch(contentRequest.url)
+  const data = useData(contentRequest.url, codeRequest.url)
 
   return (
-    <Page title={title} path="/src/utils" contentVisible={code}>
-      <Content>{content}</Content>
-
-      <Code className={style.code}>{code}</Code>
-
-      <Content>{content}</Content>
+    <Page title={title} path="/src/utils" loading={!data}>
+      <Content>{data}</Content>
     </Page>
   )
-}
-
-const style = {
-  code: css`
-    min-width: 862px;
-  `,
-  content: css`
-    margin-top: 40px;
-  `
 }
 
 export default DataPreload

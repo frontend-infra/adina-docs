@@ -6,6 +6,7 @@ import { DESKTOP_VIEWPORT } from 'styles/constants'
 import useHighlight from 'hooks/useHighlight'
 import Title from 'components/common/Title'
 import Path from 'components/common/Path'
+import highlightStyle from 'styles/highlight'
 
 type PageProps = HTMLAttributes<HTMLDivElement> & {
   title: string
@@ -78,7 +79,12 @@ const style = {
     }
 
     code {
+      display: block;
+      padding: 1em;
+      border-radius: 6px;
       font-size: 12px;
+
+      ${highlightStyle}
     }
 
     strong {

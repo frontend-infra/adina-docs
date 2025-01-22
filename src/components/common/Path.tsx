@@ -10,14 +10,13 @@ const Path: FC<HTMLAttributes<HTMLSpanElement>> = ({ className, children, ...pro
 const style = {
   wrapper: css`
     display: inline-block;
-    padding: 5px 10px;
+    padding: 4px 8px;
     border-radius: 4px;
-    color: #dddddd;
-    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    background-color: var(--text-color);
   `,
   path: css`
     font-weight: 600;
-    color: #fff;
   `
 }
 

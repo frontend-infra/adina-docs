@@ -4,7 +4,6 @@ import { DESKTOP_VIEWPORT } from './constants'
 
 injectGlobal`
 	:root {
-    --secondary-color: #444444;
 		--text-color: #24292e;
 		--bg-color: #fff;
     --mui-palette-text-primary: #24292e;

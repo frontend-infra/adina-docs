@@ -103,12 +103,15 @@ injectGlobal`
     }
   }
 
+  main.MuiBox-root, nav.MuiBox-root {
+    @media ${DESKTOP_VIEWPORT} {
+      scrollbar-color: var(--text-color) var(--mui-palette-divider);
+    }
+  }
+
   nav.MuiBox-root {
     @media ${DESKTOP_VIEWPORT} {
-        ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
+        scrollbar-width: thin;
     }
   }
 

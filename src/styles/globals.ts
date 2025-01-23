@@ -1,7 +1,5 @@
 import { injectGlobal } from '@emotion/css'
 
-import { DESKTOP_VIEWPORT } from './constants'
-
 injectGlobal`
 	:root {
 		--text-color: #24292e;
@@ -22,22 +20,6 @@ injectGlobal`
 	}
 
   * {
-    @media ${DESKTOP_VIEWPORT} {
-      /* scrollbar-color: var(--bg-color) var(--mui-palette-divider); */
-
-      /* ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      } */
-
-      ::-webkit-scrollbar-thumb {
-        background-color: var(--mui-palette-divider);
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background-color: #555;
-      }
-    }
-
     @media (hover: none) {
       :hover {
         opacity: 1 !important;

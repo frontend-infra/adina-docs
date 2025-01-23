@@ -81,6 +81,8 @@ const style = {
     code {
       display: block;
       padding: 1em;
+      white-space: pre;
+      overflow-x: auto;
       border-radius: 6px;
       font-size: 12px;
 

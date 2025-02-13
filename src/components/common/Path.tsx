@@ -12,7 +12,7 @@ const style = {
     display: inline-block;
     padding: 4px 8px;
     border-radius: 4px;
-    color: var(--bg-color);
+    color: var(--background-color);
     background-color: var(--text-color);
   `,
   path: css`

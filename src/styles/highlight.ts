@@ -2,9 +2,9 @@ import { css } from '@emotion/css'
 
 export default css`
   &.hljs {
-    border: 1px solid #d1d9e0;
+    border: 1px solid var(--mui-palette-divider);
     color: #24292e;
-    background-color: #fff;
+    background-color: var(--background-color);
   }
 
   .hljs-doctag,
@@ -95,9 +95,7 @@ export default css`
   }
 
   [data-theme='dark'] & {
-    border-color: #3d444d;
     color: #c9d1d9;
-    background-color: #0d1117;
 
     .hljs-doctag,
     .hljs-keyword,

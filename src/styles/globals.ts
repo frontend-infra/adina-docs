@@ -3,7 +3,7 @@ import { injectGlobal } from '@emotion/css'
 injectGlobal`
 	:root {
 		--text-color: #24292e;
-		--bg-color: #fff;
+		--background-color: #fff;
     --mui-palette-text-primary: #24292e;
     --mui-palette-background-paper: #fff;
     --mui-palette-divider: #e1e4e8;
@@ -13,9 +13,9 @@ injectGlobal`
 
 	[data-theme='dark'] {
 		--text-color: #fff;
-		--bg-color: #0f0e0e;
+		--background-color: #000;
     --mui-palette-text-primary: #fff;
-    --mui-palette-background-paper: #0f0e0e;
+    --mui-palette-background-paper: #000;
     --mui-palette-divider: #3a3a3a;
 	}
 
@@ -30,52 +30,15 @@ injectGlobal`
 	body {
 		font-family: 'Montserrat', sans-serif;
 		color: var(--text-color);
-		background-color: var(--bg-color);
+		background-color: var(--background-color);
 	}
 
 	svg {
 		fill: currentColor;
 	}
 
-	.hidden {
-		display: none;
-	}
-
-	.invisible {
-		visibility: hidden;
-	}
-
-	.flex {
-		display: flex;
-	}
-
-	.flex-col {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.flex-wrap {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	.justify-between {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.justify-end {
-		display: flex;
-		justify-content: flex-end;
-	}
-
 	.items-center {
 		display: flex;
 		align-items: center;
-	}
-
-	.items-end {
-		display: flex;
-		align-items: flex-end;
 	}
 `

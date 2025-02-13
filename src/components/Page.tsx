@@ -62,20 +62,23 @@ const style = {
     user-select: none;
   `,
   main: css`
-    h2,
-    h3 {
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    section {
-      margin-bottom: -15px;
-      font-weight: 500;
-    }
-
     pre {
       white-space: pre-wrap;
       font-family: 'Montserrat', sans-serif;
+    }
+
+    h2,
+    h3 {
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    h3 {
+      margin-bottom: -20px;
+      font-size: 16px;
     }
 
     code {

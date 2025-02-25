@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, version } from 'react'
 import { useMedia } from 'frontend-essentials'
 import { ReactRouterAppProvider as AppProvider } from '@toolpad/core/react-router'
 import { DashboardLayout } from '@toolpad/core/DashboardLayout'
@@ -28,7 +28,11 @@ const App: FC<{}> = () => {
         branding={{
           logo: <span></span>,
           // @ts-ignore
-          title: <span {...getDataPreloadHandlers('/')}>ADINA</span>,
+          title: (
+            <span {...getDataPreloadHandlers('/')}>
+              ADINA <span className={style.version}>alpha docs</span>
+            </span>
+          ),
           homeUrl: '/'
         }}
         disableCollapsibleSidebar={desktop}
@@ -152,6 +156,11 @@ injectGlobal`
 `
 
 const style = {
+  version: css`
+    opacity: 0.75;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  `,
   githubLink: css`
     display: flex;
     align-items: center;

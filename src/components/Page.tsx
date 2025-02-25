@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 import { Meta } from 'frontend-essentials'
-import { css, keyframes } from '@emotion/css'
+import { css, keyframes, cx } from '@emotion/css'
 
 import { DESKTOP_VIEWPORT } from 'styles/constants'
 import useHighlight from 'hooks/useHighlight'
@@ -26,6 +26,8 @@ const Page: FC<PageProps> = ({ title, path, loading, children }) => {
       {path && <Path className={style.path}>{path}</Path>}
 
       {loading ? <span className={style.loading}>Loading...</span> : <main className={style.main}>{children}</main>}
+
+      {!children ? <span className={cx(style.loading, style.noContent)}>This Page is in Development</span> : null}
     </div>
   )
 }
@@ -60,6 +62,10 @@ const style = {
     color: var(--text-color);
     animation: ${animations.fadeIn} 0.2s linear 1s forwards;
     user-select: none;
+  `,
+  noContent: css`
+    opacity: 0.75;
+    animation: none;
   `,
   main: css`
     pre {

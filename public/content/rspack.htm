@@ -1,22 +1,10 @@
-<h2>Overview</h2>
-
-<br />
-
 <pre>
+<h2>Overview</h2>
 This Rspack configuration is responsible of splitting vendors and async vendors to separate chunks and injecting them to a service worker for later precaching.
-</pre>
 
-<br />
-
-<pre><code>INJECTED_CODE</code></pre>
-
-<br />
+<code>INJECTED_CODE</code>
 
 <h2>In-Depth Analysis</h2>
-
-<br />
-
-<pre>
 The <strong>output</strong> object is set to save all script files under a <strong>scripts</strong> folder.
 
 The <strong>optimization</strong> object is set to split venders and async vendors to separate chunks while preventing duplications.

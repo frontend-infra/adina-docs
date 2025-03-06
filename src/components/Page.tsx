@@ -65,6 +65,7 @@ const style = {
   `,
   noContent: css`
     opacity: 0.75;
+    text-align: center;
     animation: none;
   `,
   main: css`

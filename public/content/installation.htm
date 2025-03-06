@@ -2,12 +2,10 @@
 Adina can be integrated into any Webpack or Rspack project using the following methods:
 
 <strong>Manually</strong> - By downloading the ZIP archive from the GitHub repository and copying its contents into
-your project:
-<a href="https://github.com/frontend-infra/adina/archive/refs/heads/main.zip" target="_blank">https://github.com/frontend-infra/adina/archive/refs/heads/main.zip</a>
-
+your project: <a href="https://github.com/frontend-infra/adina/archive/refs/heads/main.zip" target="_blank">https://github.com/frontend-infra/adina/archive/refs/heads/main.zip</a>
 <strong>Automatically</strong> - Using the provided shell scripts:
 
-<section>Linux/MacOS</section>
+<section><em>Linux/MacOS</em></section>
 <code>#!/bin/bash
 
 currentDir=$(pwd)
@@ -61,7 +59,7 @@ rm -rf $extractedFolder
 echo "Adina has been successfully integrated into your project. You still need to manually merge any files that have the '-adina' suffix."
 </code>
 
-<section>Windows (PowerShell)</section>
+<section><em>Windows (PowerShell)</em></section>
 <code>$currentDir = Get-Location
 $repoUrl = "https://github.com/frontend-infra/adina/archive/refs/heads/main.zip"
 $zipFilePath = Join-Path -Path $currentDir -ChildPath "adina.zip"
